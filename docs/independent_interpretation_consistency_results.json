@@ -1,0 +1,487 @@
+{
+    "summary": {
+        "experiment": "Independent interpretation consistency",
+        "model": "llama3.2:3b",
+        "temperature": 0,
+        "total_cases": 10,
+        "repeats_per_case": 3,
+        "total_runs": 30,
+        "correct_runs": 25,
+        "accuracy": 0.8333333333333334,
+        "stable_cases": 9,
+        "case_stability_rate": 0.9,
+        "total_seconds": 123.31474229996093,
+        "average_seconds_per_run": 4.110491409998698,
+        "limitations": [
+            "Only ten independent paraphrases are tested.",
+            "Each case is repeated three times.",
+            "Temperature zero does not guarantee identical outputs.",
+            "Stability is measured using normalized Boolean predictions.",
+            "Identical incorrect predictions count as stable.",
+            "The experiment evaluates interpretation, not routing.",
+            "Results may vary across model versions and environments."
+        ]
+    },
+    "cases": [
+        {
+            "case_id": "IND01",
+            "text": "Deployment is permitted when the entire test suite succeeds.",
+            "expected_value": true,
+            "runs": [
+                {
+                    "run": 1,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": true,
+                    "seconds": 3.770706200040877,
+                    "error": null
+                },
+                {
+                    "run": 2,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": true,
+                    "seconds": 3.736625700024888,
+                    "error": null
+                },
+                {
+                    "run": 3,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": true,
+                    "seconds": 3.754806200042367,
+                    "error": null
+                }
+            ],
+            "correct_runs": 3,
+            "unique_predictions": 1,
+            "all_identical": true
+        },
+        {
+            "case_id": "IND02",
+            "text": "If a single test reports failure, send the code back for repairs.",
+            "expected_value": false,
+            "runs": [
+                {
+                    "run": 1,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "predicted_value": false,
+                    "correct": true,
+                    "seconds": 4.818398199975491,
+                    "error": null
+                },
+                {
+                    "run": 2,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "predicted_value": false,
+                    "correct": true,
+                    "seconds": 4.044732199981809,
+                    "error": null
+                },
+                {
+                    "run": 3,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "predicted_value": false,
+                    "correct": true,
+                    "seconds": 4.028531299903989,
+                    "error": null
+                }
+            ],
+            "correct_runs": 3,
+            "unique_predictions": 1,
+            "all_identical": true
+        },
+        {
+            "case_id": "IND03",
+            "text": "Release the application only if no tests are failing.",
+            "expected_value": true,
+            "runs": [
+                {
+                    "run": 1,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": true,
+                    "seconds": 4.114821000024676,
+                    "error": null
+                },
+                {
+                    "run": 2,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": true,
+                    "seconds": 4.057110199937597,
+                    "error": null
+                },
+                {
+                    "run": 3,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": true,
+                    "seconds": 4.106336700031534,
+                    "error": null
+                }
+            ],
+            "correct_runs": 3,
+            "unique_predictions": 1,
+            "all_identical": true
+        },
+        {
+            "case_id": "IND04",
+            "text": "Any unsuccessful test should prevent deployment.",
+            "expected_value": false,
+            "runs": [
+                {
+                    "run": 1,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "predicted_value": false,
+                    "correct": true,
+                    "seconds": 3.7825677001383156,
+                    "error": null
+                },
+                {
+                    "run": 2,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "predicted_value": false,
+                    "correct": true,
+                    "seconds": 3.809958399971947,
+                    "error": null
+                },
+                {
+                    "run": 3,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "predicted_value": false,
+                    "correct": true,
+                    "seconds": 3.762068600161001,
+                    "error": null
+                }
+            ],
+            "correct_runs": 3,
+            "unique_predictions": 1,
+            "all_identical": true
+        },
+        {
+            "case_id": "IND05",
+            "text": "When the complete test suite passes, move to the release stage.",
+            "expected_value": true,
+            "runs": [
+                {
+                    "run": 1,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": true,
+                    "seconds": 4.261184399947524,
+                    "error": null
+                },
+                {
+                    "run": 2,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": true,
+                    "seconds": 4.1720884998794645,
+                    "error": null
+                },
+                {
+                    "run": 3,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": true,
+                    "seconds": 4.241181000135839,
+                    "error": null
+                }
+            ],
+            "correct_runs": 3,
+            "unique_predictions": 1,
+            "all_identical": true
+        },
+        {
+            "case_id": "IND06",
+            "text": "If the test results contain even one failure, return to development.",
+            "expected_value": false,
+            "runs": [
+                {
+                    "run": 1,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": false,
+                    "seconds": 4.9305717998649925,
+                    "error": null
+                },
+                {
+                    "run": 2,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": false,
+                    "seconds": 4.148173799971119,
+                    "error": null
+                },
+                {
+                    "run": 3,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": false,
+                    "seconds": 4.171488100197166,
+                    "error": null
+                }
+            ],
+            "correct_runs": 0,
+            "unique_predictions": 1,
+            "all_identical": true
+        },
+        {
+            "case_id": "IND07",
+            "text": "Proceed with deployment provided that every test is successful.",
+            "expected_value": true,
+            "runs": [
+                {
+                    "run": 1,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": true,
+                    "seconds": 3.9717031999025494,
+                    "error": null
+                },
+                {
+                    "run": 2,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": true,
+                    "seconds": 3.988450499949977,
+                    "error": null
+                },
+                {
+                    "run": 3,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": true,
+                    "seconds": 3.9859130999539047,
+                    "error": null
+                }
+            ],
+            "correct_runs": 3,
+            "unique_predictions": 1,
+            "all_identical": true
+        },
+        {
+            "case_id": "IND08",
+            "text": "Do not release the software when any test has failed.",
+            "expected_value": false,
+            "runs": [
+                {
+                    "run": 1,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "predicted_value": false,
+                    "correct": true,
+                    "seconds": 4.074047100031748,
+                    "error": null
+                },
+                {
+                    "run": 2,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "predicted_value": false,
+                    "correct": true,
+                    "seconds": 4.097441300051287,
+                    "error": null
+                },
+                {
+                    "run": 3,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "predicted_value": false,
+                    "correct": true,
+                    "seconds": 4.027018700027838,
+                    "error": null
+                }
+            ],
+            "correct_runs": 3,
+            "unique_predictions": 1,
+            "all_identical": true
+        },
+        {
+            "case_id": "IND09",
+            "text": "The application may be deployed after all checks pass.",
+            "expected_value": true,
+            "runs": [
+                {
+                    "run": 1,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": true,
+                    "seconds": 4.162693100050092,
+                    "error": null
+                },
+                {
+                    "run": 2,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": true,
+                    "seconds": 4.14129490009509,
+                    "error": null
+                },
+                {
+                    "run": 3,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": true,
+                    "seconds": 4.218260899884626,
+                    "error": null
+                }
+            ],
+            "correct_runs": 3,
+            "unique_predictions": 1,
+            "all_identical": true
+        },
+        {
+            "case_id": "IND10",
+            "text": "If the test suite is not fully successful, return the code for fixes.",
+            "expected_value": false,
+            "runs": [
+                {
+                    "run": 1,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "predicted_value": false,
+                    "correct": true,
+                    "seconds": 4.826373599935323,
+                    "error": null
+                },
+                {
+                    "run": 2,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": false,
+                    "seconds": 4.052441499894485,
+                    "error": null
+                },
+                {
+                    "run": 3,
+                    "condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "predicted_value": true,
+                    "correct": false,
+                    "seconds": 4.05775439995341,
+                    "error": null
+                }
+            ],
+            "correct_runs": 1,
+            "unique_predictions": 2,
+            "all_identical": false
+        }
+    ]
+}

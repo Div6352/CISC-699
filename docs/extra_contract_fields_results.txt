@@ -1,0 +1,174 @@
+CISC 699 — CAPSTONE II A2 RESEARCH
+EXTRA SEMANTIC CONTRACT FIELDS — EXPERIMENT RESULTS
+
+Research Topic:
+Natural-Language Edge Semantics and Deterministic Agent Execution
+
+==================================================
+1. EXPERIMENT OBJECTIVE
+==================================================
+
+The objective of this experiment was to determine how the existing structured semantic contract validator handles unexpected fields in otherwise valid contracts.
+
+The experiment examined whether additional fields at the contract level and condition level cause validation to fail.
+
+==================================================
+2. IMPLEMENTATION AND TEST FILES
+==================================================
+
+Validator Implementation:
+src/contract_validator.py
+
+Experiment Test File:
+src/test_extra_contract_fields.py
+
+The validator checks required contract fields and supported condition values.
+
+However, the current implementation does not explicitly reject additional fields.
+
+==================================================
+3. TEST METHODOLOGY
+==================================================
+
+Four contract scenarios were evaluated.
+
+Each contract was submitted to the validate_contract() function.
+
+All four contracts contained the required valid source, target, and condition values.
+
+Three scenarios introduced unexpected fields.
+
+The experiment used Python assertions to verify the validator's existing behavior.
+
+The expected result for all four scenarios was True.
+
+==================================================
+4. TEST SCENARIOS
+==================================================
+
+Scenario 1: Standard Valid Contract
+
+Description:
+A contract containing the expected fields without unexpected additions.
+
+Expected Result: True
+Observed Result: True
+
+Status: PASS
+
+Scenario 2: Unexpected Top-Level Field
+
+Description:
+A valid contract containing an additional field named "unexpected_field".
+
+Expected Result: True
+Observed Result: True
+
+Status: PASS
+
+Scenario 3: Unexpected Condition Field
+
+Description:
+A valid contract containing an additional field named "unexpected_condition_field" inside the condition dictionary.
+
+Expected Result: True
+Observed Result: True
+
+Status: PASS
+
+Scenario 4: Both Unexpected Fields
+
+Description:
+A valid contract containing unexpected fields at both the top level and inside the condition dictionary.
+
+Expected Result: True
+Observed Result: True
+
+Status: PASS
+
+==================================================
+5. OBSERVED RESULTS
+==================================================
+
+Total scenarios tested: 4
+Passed scenarios: 4
+Failed scenarios: 0
+
+Overall result: PASS
+
+Terminal confirmation:
+
+Standard valid contract accepted: PASS
+Extra top-level field accepted: PASS
+Extra condition field accepted: PASS
+Both unexpected fields accepted: PASS
+
+Total scenarios: 4
+Passed scenarios: 4
+
+Overall result: PASS
+All extra contract fields tests passed!
+
+==================================================
+6. RESEARCH INTERPRETATION
+==================================================
+
+The experiment confirmed that the current semantic contract validator accepts additional fields when all required validation conditions are satisfied.
+
+This behavior can be described as permissive field validation.
+
+The validator checks whether required fields contain supported values but does not enforce an exact set of permitted field names.
+
+The observed behavior is not automatically a defect.
+
+Permissive validation may allow additional metadata to be included without modifying the validator.
+
+However, it also means unexpected or misspelled additional fields may remain undetected when the required fields are otherwise valid.
+
+This distinction is relevant to the reliability and interpretability of structured natural-language edge contracts.
+
+==================================================
+7. DESIGN CONSIDERATIONS
+==================================================
+
+Two possible validation policies are:
+
+PERMISSIVE VALIDATION:
+Accept additional fields as long as required fields are valid.
+
+STRICT VALIDATION:
+Reject fields that are not explicitly included in the contract schema.
+
+The current prototype uses permissive validation.
+
+A stricter policy could be evaluated in future work if exact schema enforcement becomes a requirement.
+
+Changing the policy would require updating the validator and its associated tests.
+
+==================================================
+8. LIMITATIONS
+==================================================
+
+The experiment evaluated four predefined contract scenarios.
+
+It did not test every possible additional field name or value type.
+
+The experiment did not evaluate whether downstream components use, ignore, or interpret unexpected fields.
+
+The results establish the validator's behavior for the tested scenarios, not the security or correctness of all possible contract extensions.
+
+==================================================
+9. CONCLUSION
+==================================================
+
+All four extra-field validation scenarios passed.
+
+The experiment demonstrated that the existing semantic contract validator accepts unexpected top-level and condition-level fields when the required contract structure remains valid.
+
+This behavior has been documented as a design characteristic and potential limitation of the current prototype.
+
+FINAL RESULT: PASS
+
+EXTRA CONTRACT FIELD TESTING: 4/4 SCENARIOS PASSED
+
+VALIDATION POLICY OBSERVED: PERMISSIVE

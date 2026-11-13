@@ -1,0 +1,55 @@
+# CISC 699 — CAPSTONE II A2 RESEARCH
+## TRACE SAVE FAILURE HANDLING RESULTS
+
+**Research Topic:** Natural-Language Edge Semantics and Deterministic Agent Execution
+
+---
+
+### 1. EXPERIMENT OBJECTIVE
+
+The purpose of this experiment was to verify that the automatic execution tracing component reports a file-system error when the configured trace output location is invalid.
+
+The experiment examined whether the system would raise an exception instead of silently reporting that an execution trace had been saved successfully.
+
+### 2. IMPLEMENTATION
+
+**Automatic Tracing Module:** `src/traced_contract_router.py`
+
+**Test File:** `src/test_trace_save_failure.py`
+
+The experiment used the `route_and_save_trace()` function with a deliberately invalid output location.
+
+A temporary directory was created using Python's `tempfile` module to avoid modifying existing research files.
+
+### 3. EXPERIMENTAL SETUP
+
+The test used one valid semantic contract:
+
+- Source: Check Tests
+- Target: Deploy Code
+- Condition: tests_passed equals True
+
+**Workflow Data:** `tests_passed = True`
+
+To simulate a file-system failure, the test created a regular text file and supplied its path as the `output_folder` argument.
+
+Because the tracing function expects a directory, this configuration caused directory creation to fail.
+
+### 4. EXPECTED BEHAVIOR
+
+The system was expected to:
+
+- Attempt to prepare the configured trace output directory.
+- Raise an `OSError` or subclass when the location was invalid.
+- Avoid silently reporting a successful trace save.
+- Preserve the existing temporary file.
+- Leave previously saved research files unchanged.
+
+### 5. OBSERVED RESULTS
+
+| Measurement | Observed result |
+|---|---|
+| Invalid output location | Detected |
+| Exception type | `FileExistsError` |
+| File-system error caught by test | PASS |
+| Existing

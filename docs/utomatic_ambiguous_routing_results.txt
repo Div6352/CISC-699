@@ -1,0 +1,142 @@
+CISC 699 — CAPSTONE II A2 RESEARCH
+AUTOMATIC AMBIGUOUS ROUTING TRACE RESULTS
+
+Research Topic:
+Natural-Language Edge Semantics and Deterministic Agent Execution
+
+--------------------------------------------------
+1. EXPERIMENT OBJECTIVE
+--------------------------------------------------
+
+The purpose of this experiment was to evaluate whether the deterministic semantic contract router safely rejects ambiguous workflow transitions and automatically records the rejected decision in a structured JSON execution trace.
+
+--------------------------------------------------
+2. IMPLEMENTATION
+--------------------------------------------------
+
+Routing Module:
+src/contract_router.py
+
+Automatic Tracing Module:
+src/traced_contract_router.py
+
+Test File:
+src/test_automatic_ambiguous_trace.py
+
+Trace Output Directory:
+docs/execution_traces/
+
+The experiment used the route_and_save_trace() function to execute routing and automatically save the resulting execution trace.
+
+--------------------------------------------------
+3. EXPERIMENTAL SETUP
+--------------------------------------------------
+
+Current Workflow Node:
+Check Tests
+
+Workflow Data:
+tests_passed = True
+
+Contract 1:
+Source: Check Tests
+Target: Deploy Code
+Condition: tests_passed equals True
+
+Contract 2:
+Source: Check Tests
+Target: Review Code
+Condition: tests_passed equals True
+
+Both contracts were valid according to the implemented contract validation rules.
+
+Both contracts matched the same workflow state, creating an ambiguous routing decision.
+
+--------------------------------------------------
+4. EXPECTED BEHAVIOR
+--------------------------------------------------
+
+The router was expected to:
+
+- Identify both matching contracts.
+- Return routing status AMBIGUOUS.
+- Avoid selecting a next workflow node.
+- Produce an explanation of the rejected decision.
+- Automatically save a JSON execution trace.
+
+--------------------------------------------------
+5. OBSERVED RESULTS
+--------------------------------------------------
+
+Routing Status:
+AMBIGUOUS
+
+Selected Next Node:
+None
+
+Number of Matching Contracts:
+2
+
+Contract Validation:
+Both contracts valid
+
+Execution Trace:
+Successfully saved
+
+Trace Filename:
+trace_d33153e4ece54fcea6c36e274e047b46.json
+
+Test Result:
+PASS
+
+Terminal Confirmation:
+All automatic ambiguous routing trace tests passed!
+
+--------------------------------------------------
+6. TRACE VERIFICATION
+--------------------------------------------------
+
+The test verified that the saved JSON trace contained:
+
+- Routing status AMBIGUOUS.
+- No selected destination.
+- Two matched contracts.
+- Two successful contract validation results.
+- A unique trace identifier matching the returned identifier.
+- A decision explanation indicating that multiple contracts matched.
+
+All assertions passed.
+
+--------------------------------------------------
+7. RESEARCH INTERPRETATION
+--------------------------------------------------
+
+The experiment demonstrates that the prototype rejects a routing decision when multiple semantic contracts match the same workflow state.
+
+Instead of arbitrarily choosing one destination, the router returns an explicit AMBIGUOUS status and leaves the selected next node unset.
+
+The automatic tracing wrapper also preserves evidence of this rejected decision.
+
+These results support the research objectives of deterministic transition evaluation, ambiguity handling, and execution traceability.
+
+--------------------------------------------------
+8. LIMITATIONS
+--------------------------------------------------
+
+The experiment evaluated one predefined ambiguous routing scenario.
+
+It did not test all possible forms of ambiguity, large workflow graphs, concurrent execution, or unexpected runtime failures.
+
+The experiment demonstrates safe ambiguity rejection for the tested scenario rather than comprehensive correctness across all possible workflow configurations.
+
+--------------------------------------------------
+9. CONCLUSION
+--------------------------------------------------
+
+The deterministic semantic contract router successfully identified two matching contracts and rejected the ambiguous workflow transition.
+
+The automatic tracing module successfully saved a structured JSON record of the rejected decision.
+
+The experiment passed all programmed assertions.
+
+FINAL RESULT: PASS

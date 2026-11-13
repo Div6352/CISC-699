@@ -1,0 +1,9 @@
+# Abstract
+
+Natural-language conditions are increasingly used to control transitions in graph-based autonomous software-development workflows. However, direct interpretation of these conditions by language models can produce inconsistent or incorrect routing decisions. This study investigates whether structured semantic contracts can support more deterministic, repeatable, and auditable workflow routing.
+
+A Python research prototype was implemented to separate language-model interpretation from deterministic condition evaluation. Using a local Ollama language model, the prototype converts natural-language edge descriptions into structured Boolean contracts. Validation, routing, graph-transition checking, and JSON execution tracing are handled by separate components.
+
+The evaluation used ten independent natural-language cases, each repeated three times. In the prompt-controlled comparison, original direct routing and prompt-controlled direct routing each achieved 15 correct decisions out of 30 (50%), while fresh structured-contract routing achieved 24 out of 30 (80%). All three methods produced stable outcomes across all ten cases, demonstrating that repeatability alone does not establish correctness. Fresh structured routing required 249.70 seconds and 60 language-model calls, compared with 112.17 seconds and 30 calls for prompt-controlled direct routing. In a separate contract-reuse experiment, structured routing achieved 27 correct decisions out of 30 (90%) using 20 contract-construction calls. A reference-contract workflow experiment produced 20 correct tested paths and 20 validated execution traces.
+
+These findings demonstrate the feasibility of separating semantic interpretation from deterministic routing. However, structurally valid contracts can still encode incorrect meanings, and the small Boolean benchmark, differing prompts, and separate experimental runs limit causal interpretation and generalizability.

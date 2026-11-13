@@ -1,0 +1,202 @@
+CISC 699 — CAPSTONE II A2 RESEARCH
+RESEARCH COMPLETION CHECKLIST
+
+Project Title:
+Natural-Language Edge Semantics and Deterministic Agent Execution
+
+Purpose:
+Review the implementation, experiments, evidence, and remaining work before preparing the final Capstone II report.
+
+==================================================
+1. CORE PROTOTYPE IMPLEMENTATION
+==================================================
+
+[COMPLETED] Structured semantic contract representation
+
+[COMPLETED] Individual semantic contract validation
+
+[COMPLETED] Boolean condition evaluation
+
+[COMPLETED] Deterministic contract-based routing
+
+[COMPLETED] Routing decision explanations
+
+[COMPLETED] Execution trace generation
+
+[COMPLETED] Automatic trace saving through the traced routing wrapper
+
+[COMPLETED] Safer JSON trace saving using temporary files and replacement
+
+[PARTIAL] Complete workflow graph validation
+
+[PARTIAL] Natural-language-to-contract generation and integration
+
+==================================================
+2. VALIDATION EXPERIMENTS
+==================================================
+
+[COMPLETED] Invalid contract rejection experiments
+
+[COMPLETED] Extended contract validation experiments
+
+[COMPLETED] Extra contract field acceptance experiments
+
+[COMPLETED] Graph node membership experiments
+
+[COMPLETED] Permitted graph transition experiments
+
+[COMPLETED] Duplicate edge identifier experiments
+
+[COMPLETED] Optional edge identifier experiments
+
+[COMPLETED] Missing or invalid workflow data experiments
+
+Research limitations identified:
+
+- Individual contract validation does not verify graph node membership.
+- Individual contract validation does not enforce permitted graph transitions.
+- Individual contract validation does not enforce unique edge identifiers across contracts.
+- Additional top-level and condition fields are accepted.
+- Edge identifiers are optional.
+
+These limitations have been examined experimentally but have not all been addressed in the production validator.
+
+==================================================
+3. DETERMINISTIC EXECUTION EXPERIMENTS
+==================================================
+
+[COMPLETED] Successful routing experiments
+
+[COMPLETED] No-match routing experiments
+
+[COMPLETED] Ambiguous routing experiments
+
+[COMPLETED] Invalid contract routing experiments
+
+[COMPLETED] Invalid workflow data routing experiments
+
+[COMPLETED] Routing explanation verification
+
+[COMPLETED] Workflow path repeatability experiments
+
+[COMPLETED] Repeated automatic execution tracing experiments
+
+Reported results:
+
+- Workflow path repeatability: 20/20 repeated paths.
+- Repeated automatic tracing: 20/20 runs passed.
+- Unique trace identifiers and files: 20/20 in the repeated tracing experiment.
+
+Important qualification:
+
+The tested workflow included a fixed initial transition from Start to Check Tests that was not selected through semantic contract evaluation.
+
+==================================================
+4. NATURAL-LANGUAGE AND LLM EXPERIMENTS
+==================================================
+
+[COMPLETED] Ollama-based structured contract generation experiments
+
+[COMPLETED] Direct LLM routing comparison experiments
+
+[COMPLETED] Natural-language variation experiments
+
+[COMPLETED] Routing timing experiments
+
+[COMPLETED] End-to-end timing experiment
+
+Reported findings:
+
+- Structured contract generation: 20/20 correct in the tested cases.
+- Direct LLM routing: 50% expected-route accuracy across the tested cases.
+- Direct LLM outputs were repeatable within the tested scenarios.
+- Two separate natural-language variation experiments reported 80% and 90% accuracy.
+
+Important qualifications:
+
+- The contract generation and direct LLM routing experiments were different tasks.
+- Their accuracy results must not be treated as a controlled head-to-head comparison.
+- Deterministic routing timing excludes language-model contract generation.
+- Timing results should not be interpreted as a complete end-to-end speed advantage without accounting for the full pipeline.
+
+==================================================
+5. EXECUTION TRACE AND FAILURE TESTING
+==================================================
+
+[COMPLETED] Trace completeness verification
+
+[COMPLETED] Trace generation for invalid contracts
+
+[COMPLETED] Trace generation for invalid workflow data
+
+[COMPLETED] Automatic ambiguous-routing trace
+
+[COMPLETED] Automatic no-match trace
+
+[COMPLETED] Trace save failure propagation
+
+[COMPLETED] Unexpected trace creation exception propagation
+
+[COMPLETED] JSON serialization failure experiment
+
+[COMPLETED] Safer JSON saving verification
+
+[COMPLETED] Regression testing after JSON saving improvements
+
+Important qualifications:
+
+- Automatic trace creation occurs when routing uses the traced routing wrapper.
+- The implementation does not guarantee an execution trace for every possible exception.
+- Safer JSON saving prevents the tested partial-file behavior but does not establish universal crash or filesystem durability guarantees.
+
+==================================================
+6. RESEARCH EVIDENCE
+==================================================
+
+[COMPLETED] Individual experiment scripts
+
+[COMPLETED] Individual experiment result documents
+
+[COMPLETED] Regression test evidence
+
+[TO REVIEW] Consistency between test outputs and research report claims
+
+[TO REVIEW] Completeness of evidence for each proposal objective
+
+[TO REVIEW] Final source code organization and reproducibility instructions
+
+==================================================
+7. REMAINING RESEARCH WORK
+==================================================
+
+[TODO] Compare the implementation against every original proposal objective.
+
+[TODO] Identify any essential missing experiment.
+
+[TODO] Consolidate results into final evaluation tables.
+
+[TODO] Clearly separate observed findings from limitations.
+
+[TODO] Prepare the final research methodology and results sections.
+
+[TODO] Prepare the discussion and conclusion.
+
+[TODO] Verify references and university submission requirements.
+
+[TODO] Perform final project verification.
+
+==================================================
+8. COMPLETION ASSESSMENT
+==================================================
+
+The core deterministic routing prototype and numerous supporting experiments have been completed.
+
+The research has produced evidence concerning contract validation, deterministic routing, repeatability, execution tracing, error handling, language-model behavior, and timing.
+
+However, final completion cannot be confirmed until the implemented system and experimental evidence are compared against the original Capstone I proposal and the Capstone II submission requirements.
+
+Current phase:
+FINAL RESEARCH REVIEW AND REPORT PREPARATION
+
+Next priority:
+PROPOSAL-TO-IMPLEMENTATION GAP REVIEW

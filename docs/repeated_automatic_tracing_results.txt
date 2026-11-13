@@ -1,0 +1,137 @@
+CISC 699 — CAPSTONE II A2 RESEARCH
+REPEATED AUTOMATIC EXECUTION TRACING RESULTS
+
+Research Topic:
+Natural-Language Edge Semantics and Deterministic Agent Execution
+
+--------------------------------------------------
+1. EXPERIMENT OBJECTIVE
+--------------------------------------------------
+
+The purpose of this experiment was to evaluate the repeatability of deterministic semantic contract routing and the reliability of automatic execution trace generation across repeated executions.
+
+The experiment examined whether identical predefined workflow conditions consistently produced the same routing decisions while generating separate JSON execution traces.
+
+--------------------------------------------------
+2. IMPLEMENTATION
+--------------------------------------------------
+
+Routing Module:
+src/contract_router.py
+
+Automatic Tracing Module:
+src/traced_contract_router.py
+
+Test File:
+src/test_repeated_automatic_tracing.py
+
+Trace Output Directory:
+docs/execution_traces/
+
+The experiment used the route_and_save_trace() function to perform deterministic routing and automatically generate a JSON trace for every execution.
+
+--------------------------------------------------
+3. EXPERIMENTAL SETUP
+--------------------------------------------------
+
+Current Workflow Node:
+Check Tests
+
+Semantic Contract 1:
+Source: Check Tests
+Target: Deploy Code
+Condition: tests_passed equals True
+
+Semantic Contract 2:
+Source: Check Tests
+Target: Fix Code
+Condition: tests_passed equals False
+
+Scenario 1:
+Workflow Data: tests_passed = True
+Expected Destination: Deploy Code
+Repetitions: 10
+
+Scenario 2:
+Workflow Data: tests_passed = False
+Expected Destination: Fix Code
+Repetitions: 10
+
+Total Executions:
+20
+
+The experiment used predefined semantic contracts rather than generating new contracts through Ollama during each execution.
+
+--------------------------------------------------
+4. EXPECTED BEHAVIOR
+--------------------------------------------------
+
+The system was expected to:
+
+- Produce the correct routing decision for each workflow state.
+- Return routing status ROUTED.
+- Select exactly one matching contract.
+- Produce identical routing destinations within each scenario.
+- Automatically save a JSON execution trace for every execution.
+- Assign a unique trace identifier to every execution.
+- Preserve routing and validation information in the saved traces.
+
+--------------------------------------------------
+5. OBSERVED RESULTS
+--------------------------------------------------
+
+Scenario 1: Tests Passed
+
+Expected Destination:
+Deploy Code
+
+Successful Executions:
+10/10
+
+Scenario 2: Tests Failed
+
+Expected Destination:
+Fix Code
+
+Successful Executions:
+10/10
+
+Overall Results:
+
+Total Executions: 20
+Passed Executions: 20
+Failed Executions: 0
+
+Unique Trace Identifiers: 20
+Unique JSON Trace Files: 20
+
+Within-Scenario Routing Consistency: 100%
+
+Overall Test Result:
+PASS
+
+Terminal Output:
+
+Total executions: 20
+Passed executions: 20
+Unique trace IDs: 20
+Unique JSON trace files: 20
+Routing consistency: 100% within each scenario
+Overall result: PASS
+
+--------------------------------------------------
+6. TRACE VERIFICATION
+--------------------------------------------------
+
+For each execution, the test verified that:
+
+- The routing status was ROUTED.
+- The selected destination matched the expected destination.
+- Exactly one semantic contract matched.
+- The JSON trace file existed.
+- The saved routing status and destination were correct.
+- The saved workflow data matched the supplied input.
+- The current workflow node was recorded.
+- The trace identifier matched the returned identifier.
+- Both supplied contracts had valid validation results.
+- A nonempty decision explanation was

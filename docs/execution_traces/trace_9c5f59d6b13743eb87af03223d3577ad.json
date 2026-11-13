@@ -1,0 +1,42 @@
+{
+    "timestamp": "2026-11-13T05:54:44.988837+00:00",
+    "current_node": "Check Tests",
+    "workflow_data": {},
+    "evaluated_contracts": [
+        {
+            "source": "Check Tests",
+            "target": "Deploy Code",
+            "condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": true
+            }
+        },
+        {
+            "source": "Check Tests",
+            "target": "Fix Code",
+            "condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": false
+            }
+        }
+    ],
+    "routing_status": "INVALID_WORKFLOW_DATA",
+    "selected_next_node": null,
+    "matched_contracts": [],
+    "validation_results": [
+        {
+            "source": "Check Tests",
+            "target": "Deploy Code",
+            "valid": true
+        },
+        {
+            "source": "Check Tests",
+            "target": "Fix Code",
+            "valid": true
+        }
+    ],
+    "decision_explanation": "The required tests_passed field is missing or is not a Boolean value. Routing was stopped.",
+    "trace_id": "9c5f59d6b13743eb87af03223d3577ad"
+}

@@ -1,0 +1,23 @@
+
+CISC 699 Capstone II A2
+Direct LLM Routing Baseline - Initial Test
+
+Model: llama3.2:3b
+Temperature: 0
+
+Test 1:
+Input: {"tests_passed": true}
+Expected: Deploy Code
+Actual: Deploy Code
+Result: CORRECT
+
+Test 2:
+Input: {"tests_passed": false}
+Expected: Fix Code
+Actual: NO_MATCH
+Result: INCORRECT
+
+Initial accuracy: 1/2 = 50%
+
+Note: This is a preliminary two-case test, not a
+reliable estimate of overall baseline accuracy.

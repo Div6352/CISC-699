@@ -1,0 +1,37 @@
+
+CISC 699 Capstone II A2
+Structured Contract Generation Consistency Experiment
+
+Model: llama3.2:3b
+Temperature: 0
+Runs per scenario: 10
+Total runs: 20
+
+Scenario 1: Tests passed
+Expected condition value: true
+Correct runs: 10/10
+Unique generated conditions: 1
+All runs identical: True
+
+Scenario 2: Tests failed
+Expected condition value: false
+Correct runs: 10/10
+Unique generated conditions: 1
+All runs identical: True
+
+Overall accuracy: 20/20 = 100%
+Within-scenario consistency: 100%
+
+Finding:
+The structured Ollama interpreter generated the expected
+semantic conditions in all 20 repeated executions.
+
+Both scenarios produced identical structured conditions
+across their respective 10 runs.
+
+Limitations:
+- Only two natural-language conditions were evaluated.
+- Temperature was set to zero.
+- Results do not establish general LLM determinism.
+- This measures condition generation, not full
+  workflow-path repeatability.

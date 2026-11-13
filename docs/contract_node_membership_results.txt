@@ -1,0 +1,201 @@
+CISC 699 — CAPSTONE II A2 RESEARCH
+CONTRACT NODE MEMBERSHIP EXPERIMENT RESULTS
+
+Research Topic:
+Natural-Language Edge Semantics and Deterministic Agent Execution
+
+==================================================
+1. EXPERIMENT OBJECTIVE
+==================================================
+
+The objective of this experiment was to determine whether the existing semantic contract validator verifies that source and target nodes belong to a workflow graph.
+
+The experiment distinguished structural contract validation from workflow graph node membership validation.
+
+==================================================
+2. IMPLEMENTATION AND TEST FILES
+==================================================
+
+Validator Implementation:
+src/contract_validator.py
+
+Experiment Test File:
+src/test_contract_node_membership.py
+
+The existing validate_contract() function checks that source and target values are nonempty strings.
+
+It does not receive a workflow graph or a collection of permitted workflow nodes.
+
+The experiment introduced a separate node membership check for comparison.
+
+==================================================
+3. EXPERIMENTAL WORKFLOW GRAPH
+==================================================
+
+The experiment used the following example workflow nodes:
+
+- Start
+- Check Tests
+- Deploy Code
+- Fix Code
+
+These nodes were represented as a Python set.
+
+The example graph was defined within the test script.
+
+==================================================
+4. TEST METHODOLOGY
+==================================================
+
+Four semantic contracts were constructed.
+
+Each contract contained valid structural fields and a supported Boolean condition.
+
+The contracts differed in whether their source and target node names existed in the example workflow graph.
+
+Two checks were performed for each contract:
+
+1. Structural validation using validate_contract().
+2. Separate node membership validation using check_node_membership().
+
+Python assertions verified the expected results.
+
+==================================================
+5. TEST SCENARIOS AND RESULTS
+==================================================
+
+SCENARIO 1: BOTH NODES EXIST
+
+Source: Check Tests
+Target: Deploy Code
+
+Structural validation: True
+Graph node membership: True
+
+Result: PASS
+
+SCENARIO 2: UNKNOWN SOURCE NODE
+
+Source: Unknown Node
+Target: Deploy Code
+
+Structural validation: True
+Graph node membership: False
+
+Result: PASS
+
+SCENARIO 3: UNKNOWN TARGET NODE
+
+Source: Check Tests
+Target: Unknown Node
+
+Structural validation: True
+Graph node membership: False
+
+Result: PASS
+
+SCENARIO 4: BOTH NODES UNKNOWN
+
+Source: Unknown Source
+Target: Unknown Target
+
+Structural validation: True
+Graph node membership: False
+
+Result: PASS
+
+==================================================
+6. OBSERVED RESULTS
+==================================================
+
+Total scenarios tested: 4
+Passed scenarios: 4
+Failed scenarios: 0
+
+Structural validation accepted: 4/4
+
+Graph membership accepted: 1/4
+Graph membership rejected: 3/4
+
+Overall result: PASS
+
+Terminal confirmation:
+
+Total scenarios: 4
+Passed scenarios: 4
+
+Overall result: PASS
+All contract node membership tests passed!
+
+==================================================
+7. RESEARCH INTERPRETATION
+==================================================
+
+The experiment demonstrated that the current semantic contract validator accepts structurally valid contracts even when their source or target node names do not exist in the example workflow graph.
+
+This behavior occurs because the validator checks node name types and nonempty values but does not verify membership in a workflow graph.
+
+The separate membership function successfully identified the three contracts containing unknown node names.
+
+The findings demonstrate that structural validity and graph membership validity are distinct properties.
+
+A contract may satisfy structural requirements while referring to a nonexistent workflow node.
+
+==================================================
+8. DESIGN IMPLICATIONS
+==================================================
+
+The findings suggest that a complete graph-based execution architecture may benefit from an additional validation stage.
+
+Such a stage could verify that:
+
+- Source nodes exist in the workflow graph.
+- Target nodes exist in the workflow graph.
+- Contracts reference permitted workflow transitions.
+
+Node membership alone does not establish that a transition is permitted.
+
+For example, two nodes may both exist in a graph without an edge connecting them.
+
+Therefore, graph node membership and permitted-edge validation should be considered separate checks.
+
+The current experiment implemented a membership check only within the test script.
+
+It did not modify the production validator or router.
+
+==================================================
+9. LIMITATIONS
+==================================================
+
+The experiment evaluated four predefined scenarios using a small example workflow graph.
+
+The results do not establish behavior for every possible graph configuration.
+
+The experiment did not evaluate:
+
+- Whether a source-to-target edge exists.
+- Whether edge identifiers are unique.
+- Whether multiple contracts conflict.
+- Whether a workflow graph contains unreachable nodes.
+- Whether graph-level validation is integrated into the execution router.
+
+The experiment demonstrates the current validator's behavior and a possible separate membership check, not a complete graph validation implementation.
+
+==================================================
+10. CONCLUSION
+==================================================
+
+All four contract node membership test scenarios passed.
+
+The current semantic contract validator accepted all four structurally valid contracts.
+
+The separate graph membership check correctly distinguished the one contract referencing known nodes from the three contracts referencing unknown nodes.
+
+The experiment identified a limitation of structural validation and demonstrated the usefulness of a separate graph membership check.
+
+FINAL RESULT: PASS
+
+CONTRACT NODE MEMBERSHIP TESTING: 4/4 SCENARIOS PASSED
+
+KEY FINDING:
+STRUCTURAL VALIDATION DOES NOT GUARANTEE WORKFLOW GRAPH NODE MEMBERSHIP.

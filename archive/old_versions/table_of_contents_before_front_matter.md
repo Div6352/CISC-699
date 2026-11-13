@@ -1,0 +1,88 @@
+# Table of Contents
+
+- **Chapter 1 — Introduction**
+  - 1.1 Background and Research Context
+  - 1.2 Problem Statement
+  - 1.3 Research Motivation
+  - 1.4 Research Question
+  - 1.5 Research Objectives
+  - 1.6 Proposed Solution and Implemented Approach
+  - 1.7 Scope of the Completed Research
+  - 1.8 Research Method Overview
+  - 1.9 Summary of Principal Findings
+  - 1.10 Significance of the Research
+  - 1.11 Organization of the Final Report
+  - 1.12 Chapter Summary
+- **Chapter 2 — Literature Review**
+  - 2.1 Introduction
+  - 2.2 Literature Search Strategy
+  - 2.3 Autonomous Software-Engineering Agents
+  - 2.4 Graph-Based Workflow Orchestration
+  - 2.5 Natural-Language Reasoning and Decision Making
+  - 2.6 Workflow Reliability, Observability, and Explainability
+  - 2.7 Natural-Language Edge Semantics and Deterministic Agent Execution
+  - 2.8 Relevant Methods, Frameworks, and Evaluation Foundations
+  - 2.9 Comparison of Existing Approaches
+  - 2.10 What Existing Literature Already Addresses
+  - 2.11 Chapter Summary
+  - References
+- **Chapter 3 — System Design and Implementation**
+  - 3.1 Introduction
+  - 3.2 System Requirements and Design Objectives
+  - 3.3 Implemented System Architecture
+  - 3.4 Structured Semantic Contract Representation
+  - 3.5 Contract Validation
+  - 3.6 Deterministic Contract Evaluation
+  - 3.7 Contract-Based Routing
+  - 3.8 Workflow Graph and Transition Enforcement
+  - 3.9 Natural-Language Interpretation with a Local Language Model
+  - 3.10 Direct Natural-Language Routing Baselines
+  - 3.11 Contract Reuse
+  - 3.12 Execution-Trace Generation and Persistence
+  - 3.13 Prototype Modules and Responsibilities
+  - 3.14 Implementation Scope and Boundaries
+  - 3.15 Chapter Summary
+- **Chapter 4 — Evaluation Methodology**
+  - 4.1 Introduction
+  - 4.2 Evaluation Environment and Prototype
+  - 4.3 Evaluation Questions
+  - 4.4 Natural-Language Evaluation Dataset
+  - 4.5 Routing Comparison Methods
+  - 4.6 Repeated Routing Protocol
+  - 4.7 Contract-Reuse Protocol
+  - 4.8 Workflow-Path and Execution-Trace Protocol
+  - 4.9 Evaluation Metrics
+  - 4.10 Data Collection and Evidence Preservation
+  - 4.11 Methodological Limitations
+  - 4.12 Chapter Summary
+- **Chapter 5 — Experimental Results**
+  - 5.1 Introduction
+  - 5.2 Prompt-Controlled Routing Comparison
+  - 5.3 Contract-Reuse Experiment
+  - 5.4 Complete Workflow-Path Evaluation
+  - 5.5 Execution-Trace Persistence Results
+  - 5.6 Consolidated Results
+  - 5.7 Chapter Summary
+- **Chapter 6 — Discussion, Limitations, and Threats to Validity**
+  - 6.1 Introduction
+  - 6.2 Interpretation of Routing Accuracy
+  - 6.3 Determinism, Repeatability, and Correctness
+  - 6.4 Interpretation of Contract-Reuse Findings
+  - 6.5 Workflow-Path Repeatability
+  - 6.6 Auditability and Execution-Trace Evidence
+  - 6.7 Threats to Internal Validity
+  - 6.8 Threats to Construct Validity
+  - 6.9 Threats to External Validity
+  - 6.10 Reliability and Reproducibility Considerations
+  - 6.11 Implications for the Research Objectives
+  - 6.12 Future Evaluation Priorities
+  - 6.13 Chapter Summary
+- **Chapter 7 — Conclusion and Future Work**
+  - 7.1 Introduction
+  - 7.2 Research Problem and Implemented Approach
+  - 7.3 Summary of Experimental Findings
+  - 7.4 Answer to the Research Question
+  - 7.5 Research Contributions
+  - 7.6 Limitations
+  - 7.7 Future Work
+  - 7.8 Final Conclusion

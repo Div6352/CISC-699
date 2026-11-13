@@ -1,0 +1,54 @@
+{
+    "timestamp": "2026-11-13T05:58:10.037993+00:00",
+    "current_node": "Check Tests",
+    "workflow_data": {
+        "tests_passed": true
+    },
+    "evaluated_contracts": [
+        {
+            "source": "Check Tests",
+            "target": "Deploy Code",
+            "condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": true
+            }
+        },
+        {
+            "source": "Check Tests",
+            "target": "Fix Code",
+            "condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": false
+            }
+        }
+    ],
+    "routing_status": "ROUTED",
+    "selected_next_node": "Deploy Code",
+    "matched_contracts": [
+        {
+            "source": "Check Tests",
+            "target": "Deploy Code",
+            "condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": true
+            }
+        }
+    ],
+    "validation_results": [
+        {
+            "source": "Check Tests",
+            "target": "Deploy Code",
+            "valid": true
+        },
+        {
+            "source": "Check Tests",
+            "target": "Fix Code",
+            "valid": true
+        }
+    ],
+    "decision_explanation": "Exactly one contract matched. Routing to Deploy Code.",
+    "trace_id": "a96b83b2eb1a46deb4fea8517cff79f6"
+}

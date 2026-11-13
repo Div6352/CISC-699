@@ -1,0 +1,3 @@
+# CISC 699 Capstone II research prototype
+# No third-party Python packages are required.
+# Ollama and the llama3.2:3b model are installed separately.

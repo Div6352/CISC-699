@@ -1,0 +1,30 @@
+{
+    "timestamp": "2026-11-10T01:51:50.558015+00:00",
+    "current_node": "Check Tests",
+    "workflow_data": {
+        "tests_passed": true
+    },
+    "evaluated_contracts": [
+        {
+            "source": "Check Tests",
+            "target": "Deploy Code",
+            "condition": {
+                "field": "unknown_field",
+                "operator": "equals",
+                "value": true
+            }
+        }
+    ],
+    "routing_status": "INVALID_CONTRACT",
+    "selected_next_node": null,
+    "matched_contracts": [],
+    "validation_results": [
+        {
+            "source": "Check Tests",
+            "target": "Deploy Code",
+            "valid": false
+        }
+    ],
+    "decision_explanation": "Contract validation failed. Routing was stopped.",
+    "trace_id": "c09627f5118147529bc9d14868400755"
+}

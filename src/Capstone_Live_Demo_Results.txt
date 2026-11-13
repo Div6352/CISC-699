@@ -1,0 +1,47 @@
+# CISC 699 Capstone II — Live Demonstration Results
+
+**Project:** Natural-Language Edge Semantics and Deterministic Agent Execution
+
+**Component demonstrated:** Deterministic Semantic Contract Router
+
+## Scenario 1 — Tests Failed
+
+Input: `tests_passed = False`
+
+Status: `ROUTED`
+
+Next node: `Fix Code`
+
+Explanation: Exactly one contract matched. Routing to Fix Code.
+
+**Result: PASSED**
+
+## Scenario 2 — Tests Passed
+
+Input: `tests_passed = True`
+
+Status: `ROUTED`
+
+Next node: `Deploy Code`
+
+Explanation: Exactly one contract matched. Routing to Deploy Code.
+
+**Result: PASSED**
+
+## Scenario 3 — Missing Workflow Data
+
+Input: `{}`
+
+Status: `INVALID_WORKFLOW_DATA`
+
+Next node: `None`
+
+Explanation: The required tests_passed field is missing or is not a Boolean value. Routing was stopped.
+
+**Result: PASSED**
+
+## Summary
+
+All three manually executed scenarios produced the expected results. The demonstration confirms deterministic routing and safe rejection of missing workflow data for the tested conditions.
+
+These checks did not rerun the Ollama accuracy experiments or validate the complete end-to-end research system.

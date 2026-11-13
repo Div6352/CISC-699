@@ -1,0 +1,1445 @@
+{
+    "experiment": "structured_contract_reuse",
+    "created_utc": "2026-11-09T02:06:02.318901+00:00",
+    "model": "llama3.2:3b",
+    "temperature": 0,
+    "summary": {
+        "total_cases": 10,
+        "repeats_per_case": 3,
+        "total_decisions": 30,
+        "correct_decisions": 27,
+        "accuracy": 0.9,
+        "stable_cases": 10,
+        "total_construction_seconds": 92.44549810001627,
+        "total_routing_seconds": 0.00045410031452775,
+        "total_seconds_including_construction": 92.4459522003308,
+        "average_total_seconds_per_decision": 3.0815317400110263,
+        "average_routing_seconds_per_decision": 1.5136677150925e-05,
+        "total_llm_calls": 20,
+        "llm_calls_per_case": 2,
+        "llm_calls_per_reused_decision": 0
+    },
+    "records": [
+        {
+            "case_id": "IND01",
+            "repetition": 1,
+            "paraphrase": "Deployment is permitted when the entire test suite succeeds.",
+            "expected_value": true,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_target": "Deploy Code",
+            "observed_target": "Deploy Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 2.229982055723667e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 13.328922200016677,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "Deployment is permitted when the entire test suite succeeds.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 8.499119600048289,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If any software test has failed, return to fixing the code.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.827357700094581,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND01",
+            "repetition": 2,
+            "paraphrase": "Deployment is permitted when the entire test suite succeeds.",
+            "expected_value": true,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_target": "Deploy Code",
+            "observed_target": "Deploy Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 1.8900027498602867e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 13.328922200016677,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "Deployment is permitted when the entire test suite succeeds.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 8.499119600048289,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If any software test has failed, return to fixing the code.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.827357700094581,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND01",
+            "repetition": 3,
+            "paraphrase": "Deployment is permitted when the entire test suite succeeds.",
+            "expected_value": true,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_target": "Deploy Code",
+            "observed_target": "Deploy Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 1.5800120308995247e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 13.328922200016677,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "Deployment is permitted when the entire test suite succeeds.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 8.499119600048289,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If any software test has failed, return to fixing the code.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.827357700094581,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND02",
+            "repetition": 1,
+            "paraphrase": "If a single test reports failure, send the code back for repairs.",
+            "expected_value": false,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_target": "Fix Code",
+            "observed_target": "Fix Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 1.5700003132224083e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 9.28375479998067,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "If all software tests have passed, proceed to deployment.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.4006918000523,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If a single test reports failure, send the code back for repairs.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.883032500045374,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND02",
+            "repetition": 2,
+            "paraphrase": "If a single test reports failure, send the code back for repairs.",
+            "expected_value": false,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_target": "Fix Code",
+            "observed_target": "Fix Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 2.3399945348501205e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 9.28375479998067,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "If all software tests have passed, proceed to deployment.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.4006918000523,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If a single test reports failure, send the code back for repairs.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.883032500045374,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND02",
+            "repetition": 3,
+            "paraphrase": "If a single test reports failure, send the code back for repairs.",
+            "expected_value": false,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_target": "Fix Code",
+            "observed_target": "Fix Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 1.8300022929906845e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 9.28375479998067,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "If all software tests have passed, proceed to deployment.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.4006918000523,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If a single test reports failure, send the code back for repairs.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.883032500045374,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND03",
+            "repetition": 1,
+            "paraphrase": "Release the application only if no tests are failing.",
+            "expected_value": true,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_target": "Deploy Code",
+            "observed_target": "Deploy Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 1.0600080713629723e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 8.928339699981734,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "Release the application only if no tests are failing.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.865830400027335,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If any software test has failed, return to fixing the code.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.0624864001292735,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND03",
+            "repetition": 2,
+            "paraphrase": "Release the application only if no tests are failing.",
+            "expected_value": true,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_target": "Deploy Code",
+            "observed_target": "Deploy Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 6.8999361246824265e-06,
+            "routing_error": null,
+            "contract_construction_seconds": 8.928339699981734,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "Release the application only if no tests are failing.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.865830400027335,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If any software test has failed, return to fixing the code.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.0624864001292735,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND03",
+            "repetition": 3,
+            "paraphrase": "Release the application only if no tests are failing.",
+            "expected_value": true,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_target": "Deploy Code",
+            "observed_target": "Deploy Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 2.2799940779805183e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 8.928339699981734,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "Release the application only if no tests are failing.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.865830400027335,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If any software test has failed, return to fixing the code.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.0624864001292735,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND04",
+            "repetition": 1,
+            "paraphrase": "Any unsuccessful test should prevent deployment.",
+            "expected_value": false,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_target": "Fix Code",
+            "observed_target": "Fix Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 1.1600088328123093e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 8.505337100010365,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "If all software tests have passed, proceed to deployment.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 3.705649600131437,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "Any unsuccessful test should prevent deployment.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.799660200020298,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND04",
+            "repetition": 2,
+            "paraphrase": "Any unsuccessful test should prevent deployment.",
+            "expected_value": false,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_target": "Fix Code",
+            "observed_target": "Fix Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 1.5200115740299225e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 8.505337100010365,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "If all software tests have passed, proceed to deployment.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 3.705649600131437,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "Any unsuccessful test should prevent deployment.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.799660200020298,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND04",
+            "repetition": 3,
+            "paraphrase": "Any unsuccessful test should prevent deployment.",
+            "expected_value": false,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_target": "Fix Code",
+            "observed_target": "Fix Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 6.700167432427406e-06,
+            "routing_error": null,
+            "contract_construction_seconds": 8.505337100010365,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "If all software tests have passed, proceed to deployment.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 3.705649600131437,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "Any unsuccessful test should prevent deployment.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.799660200020298,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND05",
+            "repetition": 1,
+            "paraphrase": "When the complete test suite passes, move to the release stage.",
+            "expected_value": true,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_target": "Deploy Code",
+            "observed_target": "Deploy Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 1.4299992471933365e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 9.011472000041977,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "When the complete test suite passes, move to the release stage.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.986431000055745,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If any software test has failed, return to fixing the code.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.025013799779117,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND05",
+            "repetition": 2,
+            "paraphrase": "When the complete test suite passes, move to the release stage.",
+            "expected_value": true,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_target": "Deploy Code",
+            "observed_target": "Deploy Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 1.5200115740299225e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 9.011472000041977,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "When the complete test suite passes, move to the release stage.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.986431000055745,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If any software test has failed, return to fixing the code.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.025013799779117,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND05",
+            "repetition": 3,
+            "paraphrase": "When the complete test suite passes, move to the release stage.",
+            "expected_value": true,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_target": "Deploy Code",
+            "observed_target": "Deploy Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 1.7300015315413475e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 9.011472000041977,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "When the complete test suite passes, move to the release stage.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.986431000055745,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If any software test has failed, return to fixing the code.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.025013799779117,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND06",
+            "repetition": 1,
+            "paraphrase": "If the test results contain even one failure, return to development.",
+            "expected_value": false,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_target": "Fix Code",
+            "observed_target": null,
+            "status": "NO_MATCH",
+            "correct": false,
+            "routing_seconds": 8.400063961744308e-06,
+            "routing_error": null,
+            "contract_construction_seconds": 8.540170900058001,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "If all software tests have passed, proceed to deployment.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 3.676662800135091,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If the test results contain even one failure, return to development.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": false,
+                    "contract_valid": true,
+                    "seconds": 4.863488100003451,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND06",
+            "repetition": 2,
+            "paraphrase": "If the test results contain even one failure, return to development.",
+            "expected_value": false,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_target": "Fix Code",
+            "observed_target": null,
+            "status": "NO_MATCH",
+            "correct": false,
+            "routing_seconds": 1.610000617802143e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 8.540170900058001,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "If all software tests have passed, proceed to deployment.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 3.676662800135091,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If the test results contain even one failure, return to development.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": false,
+                    "contract_valid": true,
+                    "seconds": 4.863488100003451,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND06",
+            "repetition": 3,
+            "paraphrase": "If the test results contain even one failure, return to development.",
+            "expected_value": false,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_target": "Fix Code",
+            "observed_target": null,
+            "status": "NO_MATCH",
+            "correct": false,
+            "routing_seconds": 9.19983722269535e-06,
+            "routing_error": null,
+            "contract_construction_seconds": 8.540170900058001,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "If all software tests have passed, proceed to deployment.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 3.676662800135091,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If the test results contain even one failure, return to development.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": false,
+                    "contract_valid": true,
+                    "seconds": 4.863488100003451,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND07",
+            "repetition": 1,
+            "paraphrase": "Proceed with deployment provided that every test is successful.",
+            "expected_value": true,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_target": "Deploy Code",
+            "observed_target": "Deploy Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 1.3699987903237343e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 8.754195200046524,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "Proceed with deployment provided that every test is successful.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.714022199856117,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If any software test has failed, return to fixing the code.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.040144400205463,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND07",
+            "repetition": 2,
+            "paraphrase": "Proceed with deployment provided that every test is successful.",
+            "expected_value": true,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_target": "Deploy Code",
+            "observed_target": "Deploy Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 1.2399861589074135e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 8.754195200046524,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "Proceed with deployment provided that every test is successful.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.714022199856117,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If any software test has failed, return to fixing the code.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.040144400205463,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND07",
+            "repetition": 3,
+            "paraphrase": "Proceed with deployment provided that every test is successful.",
+            "expected_value": true,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_target": "Deploy Code",
+            "observed_target": "Deploy Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 1.1299969628453255e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 8.754195200046524,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "Proceed with deployment provided that every test is successful.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.714022199856117,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If any software test has failed, return to fixing the code.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.040144400205463,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND08",
+            "repetition": 1,
+            "paraphrase": "Do not release the software when any test has failed.",
+            "expected_value": false,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_target": "Fix Code",
+            "observed_target": "Fix Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 1.3999873772263527e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 8.580866399919614,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "If all software tests have passed, proceed to deployment.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 3.7477949000895023,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "Do not release the software when any test has failed.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.833044300088659,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND08",
+            "repetition": 2,
+            "paraphrase": "Do not release the software when any test has failed.",
+            "expected_value": false,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_target": "Fix Code",
+            "observed_target": "Fix Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 2.2899825125932693e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 8.580866399919614,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "If all software tests have passed, proceed to deployment.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 3.7477949000895023,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "Do not release the software when any test has failed.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.833044300088659,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND08",
+            "repetition": 3,
+            "paraphrase": "Do not release the software when any test has failed.",
+            "expected_value": false,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_target": "Fix Code",
+            "observed_target": "Fix Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 2.3799948394298553e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 8.580866399919614,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "If all software tests have passed, proceed to deployment.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 3.7477949000895023,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "Do not release the software when any test has failed.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.833044300088659,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND09",
+            "repetition": 1,
+            "paraphrase": "The application may be deployed after all checks pass.",
+            "expected_value": true,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_target": "Deploy Code",
+            "observed_target": "Deploy Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 1.0100193321704865e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 8.97420380008407,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "The application may be deployed after all checks pass.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.884206800023094,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If any software test has failed, return to fixing the code.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.0899753998965025,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND09",
+            "repetition": 2,
+            "paraphrase": "The application may be deployed after all checks pass.",
+            "expected_value": true,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_target": "Deploy Code",
+            "observed_target": "Deploy Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 6.300164386630058e-06,
+            "routing_error": null,
+            "contract_construction_seconds": 8.97420380008407,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "The application may be deployed after all checks pass.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.884206800023094,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If any software test has failed, return to fixing the code.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.0899753998965025,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND09",
+            "repetition": 3,
+            "paraphrase": "The application may be deployed after all checks pass.",
+            "expected_value": true,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_target": "Deploy Code",
+            "observed_target": "Deploy Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 5.300156772136688e-06,
+            "routing_error": null,
+            "contract_construction_seconds": 8.97420380008407,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "The application may be deployed after all checks pass.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.884206800023094,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If any software test has failed, return to fixing the code.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.0899753998965025,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND10",
+            "repetition": 1,
+            "paraphrase": "If the test suite is not fully successful, return the code for fixes.",
+            "expected_value": false,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_target": "Fix Code",
+            "observed_target": "Fix Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 1.7200130969285965e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 8.538235999876633,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "If all software tests have passed, proceed to deployment.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 3.729962999932468,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If the test suite is not fully successful, return the code for fixes.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.8082436001859605,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND10",
+            "repetition": 2,
+            "paraphrase": "If the test suite is not fully successful, return the code for fixes.",
+            "expected_value": false,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_target": "Fix Code",
+            "observed_target": "Fix Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 2.6399968191981316e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 8.538235999876633,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "If all software tests have passed, proceed to deployment.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 3.729962999932468,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If the test suite is not fully successful, return the code for fixes.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.8082436001859605,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        },
+        {
+            "case_id": "IND10",
+            "repetition": 3,
+            "paraphrase": "If the test suite is not fully successful, return the code for fixes.",
+            "expected_value": false,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_target": "Fix Code",
+            "observed_target": "Fix Code",
+            "status": "ROUTED",
+            "correct": true,
+            "routing_seconds": 2.1999934688210487e-05,
+            "routing_error": null,
+            "contract_construction_seconds": 8.538235999876633,
+            "interpretations": [
+                {
+                    "edge_id": "E01",
+                    "text": "If all software tests have passed, proceed to deployment.",
+                    "expected_value": true,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": true
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 3.729962999932468,
+                    "error": null
+                },
+                {
+                    "edge_id": "E02",
+                    "text": "If the test suite is not fully successful, return the code for fixes.",
+                    "expected_value": false,
+                    "predicted_condition": {
+                        "field": "tests_passed",
+                        "operator": "equals",
+                        "value": false
+                    },
+                    "interpretation_correct": true,
+                    "contract_valid": true,
+                    "seconds": 4.8082436001859605,
+                    "error": null
+                }
+            ],
+            "case_stable": true
+        }
+    ],
+    "limitations": [
+        "Ten manually defined paraphrases of one Boolean condition.",
+        "Each case uses one workflow state.",
+        "Contracts are generated once per case and reused three times.",
+        "Two LLM interpretation calls are made per case.",
+        "No direct LLM baseline is executed in this experiment.",
+        "Comparison with previous experiments is cross-run.",
+        "Contract construction cost is included in total time.",
+        "Stability is not equivalent to correctness.",
+        "No complete workflow path or persisted execution trace is measured."
+    ]
+}

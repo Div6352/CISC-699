@@ -1,0 +1,160 @@
+CISC 699 — CAPSTONE II A2 RESEARCH
+AUTOMATIC EXECUTION TRACING RESULTS
+
+Research Topic:
+Natural-Language Edge Semantics and Deterministic Agent Execution
+
+--------------------------------------------------
+1. OBJECTIVE
+--------------------------------------------------
+
+The purpose of this experiment was to verify that the deterministic semantic contract routing prototype can automatically generate and save structured JSON execution traces.
+
+The experiment evaluated whether routing decisions, including successful and rejected decisions, could be recorded without requiring separate manual tracing calls.
+
+--------------------------------------------------
+2. IMPLEMENTATION
+--------------------------------------------------
+
+Implementation File:
+src/traced_contract_router.py
+
+Test File:
+src/test_automatic_execution_tracing.py
+
+Trace Output Directory:
+docs/execution_traces/
+
+The route_and_save_trace() function integrates the existing deterministic contract router with the execution trace generation and JSON saving functions.
+
+Each invocation:
+- Evaluates semantic contracts using the deterministic router.
+- Creates a structured execution trace.
+- Assigns a unique trace identifier.
+- Saves the trace as a JSON file.
+- Returns the routing result and saved trace location.
+
+--------------------------------------------------
+3. TEST SCENARIOS
+--------------------------------------------------
+
+Scenario 1: Successful Routing
+
+Input:
+tests_passed = True
+
+Expected Routing Status:
+ROUTED
+
+Expected Destination:
+Deploy Code
+
+Result:
+PASS
+
+Scenario 2: Invalid Semantic Contract
+
+Input:
+A contract containing an unsupported condition field.
+
+Expected Routing Status:
+INVALID_CONTRACT
+
+Expected Destination:
+None
+
+Result:
+PASS
+
+Scenario 3: Invalid Workflow Data
+
+Input:
+An empty workflow data dictionary.
+
+Expected Routing Status:
+INVALID_WORKFLOW_DATA
+
+Expected Destination:
+None
+
+Result:
+PASS
+
+--------------------------------------------------
+4. EXPERIMENTAL RESULTS
+--------------------------------------------------
+
+Total Test Scenarios: 3
+Passed Test Scenarios: 3
+Failed Test Scenarios: 0
+
+Test Pass Rate: 100%
+
+Unique Trace Identifiers: 3
+Unique Trace Files: 3
+
+Overall Result:
+PASS
+
+The test confirmed that three distinct JSON trace files were created successfully.
+
+The generated files were also verified to be visible in the docs/execution_traces/ directory.
+
+--------------------------------------------------
+5. TRACE INFORMATION
+--------------------------------------------------
+
+The generated JSON traces include:
+
+- Execution timestamp
+- Current workflow node
+- Workflow data
+- Supplied semantic contracts
+- Routing status
+- Selected next node
+- Matched contracts
+- Contract validation results
+- Decision explanation
+- Unique trace identifier
+
+--------------------------------------------------
+6. RESEARCH INTERPRETATION
+--------------------------------------------------
+
+The results demonstrate that the prototype can automatically record routing outcomes when the route_and_save_trace() wrapper is used.
+
+This supports the research objective of improving execution traceability and making routing decisions inspectable.
+
+The successful tests show that both successful routing and selected validation failures can be represented in saved JSON traces.
+
+The results do not establish that all possible runtime failures are captured.
+
+--------------------------------------------------
+7. LIMITATIONS
+--------------------------------------------------
+
+The experiment covered three predefined scenarios.
+
+The test did not evaluate:
+- Unexpected Python exceptions.
+- File-writing or permission failures.
+- Concurrent execution.
+- Large-scale execution performance.
+- Long-term trace storage management.
+- Semantic correctness of LLM-generated contracts.
+
+Automatic tracing is performed only when routing is invoked through route_and_save_trace().
+
+Therefore, these results demonstrate successful automatic tracing for the tested scenarios, rather than comprehensive reliability across all possible execution conditions.
+
+--------------------------------------------------
+8. CONCLUSION
+--------------------------------------------------
+
+The automatic execution tracing implementation passed all three test scenarios.
+
+The prototype successfully generated unique JSON trace files for successful routing, invalid semantic contracts, and invalid workflow data.
+
+These results provide experimental evidence supporting the execution monitoring and traceability component of the proposed deterministic agent execution architecture.
+
+FINAL RESULT: PASS (3/3 scenarios)

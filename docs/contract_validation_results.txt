@@ -1,0 +1,37 @@
+
+CISC 699 - Capstone II A2
+Semantic Contract Validation Experiment
+
+Condition Validation:
+Valid contract: ACCEPTED
+Incorrect field name: REJECTED
+Unsupported operator: REJECTED
+Invalid Boolean value: REJECTED
+Missing condition: REJECTED
+
+Condition validation result: 4/4 invalid cases rejected.
+
+Metadata Validation:
+Valid contract: ACCEPTED
+Missing source: REJECTED
+Empty source: REJECTED
+Invalid source type: REJECTED
+Missing target: REJECTED
+Empty target: REJECTED
+Invalid target type: REJECTED
+Empty edge ID: REJECTED
+Invalid edge ID type: REJECTED
+Valid optional edge ID: ACCEPTED
+
+Metadata validation result: 8/8 invalid cases rejected.
+
+Overall:
+12/12 tested invalid contracts were rejected.
+Valid contract cases were accepted.
+
+Limitations:
+- Node existence within a workflow graph was not verified.
+- Edge ID uniqueness was not tested.
+- Schema validation does not guarantee that an
+  LLM-generated condition matches the intended
+  natural-language meaning.

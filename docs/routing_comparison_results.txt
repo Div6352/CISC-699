@@ -1,0 +1,33 @@
+
+CISC 699 Capstone II A2
+Routing Comparison - Initial Experiment
+
+Model: llama3.2:3b
+Temperature: 0
+
+Scenario 1: Tests passed
+Expected: Deploy Code
+Direct LLM: Deploy Code (CORRECT)
+Direct LLM time: 2.299092 seconds
+Structured: Deploy Code (CORRECT)
+Structured time: 0.000012 seconds
+
+Scenario 2: Tests failed
+Expected: Fix Code
+Direct LLM: NO_MATCH (INCORRECT)
+Direct LLM time: 2.262821 seconds
+Structured: Fix Code (CORRECT)
+Structured time: 0.000009 seconds
+
+Direct LLM accuracy: 1/2 = 50%
+Structured routing accuracy: 2/2 = 100%
+
+Mean direct LLM time: 2.2809565 seconds
+Mean structured routing time: 0.0000105 seconds
+
+Limitations:
+- Only two workflow states were evaluated.
+- Structured contracts were predefined.
+- Structured timing excludes contract generation.
+- Measurements are single-run timings, not
+  statistically reliable performance estimates.

@@ -1,0 +1,102 @@
+CISC 699 — CAPSTONE II A2 RESEARCH
+AUTOMATIC NO-MATCH ROUTING TRACE RESULTS
+
+Research Topic:
+Natural-Language Edge Semantics and Deterministic Agent Execution
+
+--------------------------------------------------
+1. EXPERIMENT OBJECTIVE
+--------------------------------------------------
+
+The purpose of this experiment was to verify that the deterministic semantic contract router does not select a workflow destination when no available contract matches the current workflow state.
+
+The experiment also evaluated whether the rejected routing decision was automatically recorded in a structured JSON execution trace.
+
+--------------------------------------------------
+2. IMPLEMENTATION
+--------------------------------------------------
+
+Routing Module:
+src/contract_router.py
+
+Automatic Tracing Module:
+src/traced_contract_router.py
+
+Test File:
+src/test_automatic_no_match_trace.py
+
+Trace Output Directory:
+docs/execution_traces/
+
+The experiment used the route_and_save_trace() function to perform deterministic routing and automatically save the execution trace.
+
+--------------------------------------------------
+3. EXPERIMENTAL SETUP
+--------------------------------------------------
+
+Current Workflow Node:
+Check Tests
+
+Available Semantic Contract:
+
+Source: Check Tests
+Target: Deploy Code
+
+Condition:
+tests_passed equals True
+
+Actual Workflow Data:
+tests_passed = False
+
+The semantic contract was valid according to the implemented validation rules.
+
+However, the workflow state did not satisfy the contract condition.
+
+--------------------------------------------------
+4. EXPECTED BEHAVIOR
+--------------------------------------------------
+
+The router was expected to:
+
+- Validate the semantic contract successfully.
+- Evaluate the contract against the workflow data.
+- Return routing status NO_MATCH.
+- Avoid selecting a destination.
+- Report zero matching contracts.
+- Generate a decision explanation.
+- Automatically save a JSON execution trace.
+
+--------------------------------------------------
+5. OBSERVED RESULTS
+--------------------------------------------------
+
+Routing Status:
+NO_MATCH
+
+Selected Next Node:
+None
+
+Number of Matching Contracts:
+0
+
+Execution Trace:
+Successfully saved
+
+Trace Filename:
+trace_fce810a5c6f14f0890f86e0535504626.json
+
+Test Result:
+PASS
+
+Terminal Confirmation:
+All automatic no-match routing trace tests passed!
+
+--------------------------------------------------
+6. TRACE VERIFICATION
+--------------------------------------------------
+
+The test verified that the saved JSON trace contained:
+
+- Routing status NO_MATCH.
+- No selected destination.
+- Zero matched

@@ -1,0 +1,538 @@
+{
+    "summary": {
+        "experiment": "Independent natural-language interpretation and contract-routing evaluation",
+        "model": "llama3.2:3b",
+        "temperature": 0,
+        "total_interpretation_cases": 10,
+        "valid_interpretations": 10,
+        "correct_interpretations": 9,
+        "interpretation_accuracy": 0.9,
+        "total_routing_evaluations": 20,
+        "correct_routing_evaluations": 18,
+        "routing_accuracy": 0.9,
+        "total_interpretation_seconds": 50.92151299933903,
+        "average_interpretation_seconds": 5.092151299933903,
+        "average_routing_seconds": 8.180004078894853e-06,
+        "limitations": [
+            "The dataset contains ten paraphrases of one Boolean workflow condition.",
+            "Each natural-language edge is interpreted once.",
+            "Routing is tested against both Boolean workflow states.",
+            "The expected target is supplied by the benchmark definition, not inferred from the natural-language text.",
+            "Graph permission is checked separately; this experiment does not invoke the traced routing pipeline.",
+            "There is no matched direct-LLM baseline in this experiment.",
+            "This is a small benchmark, not evidence of general natural-language understanding."
+        ]
+    },
+    "results": [
+        {
+            "case_id": "IND01",
+            "text": "Deployment is permitted when the entire test suite succeeds.",
+            "expected_value": true,
+            "expected_target": "Deploy Code",
+            "predicted_condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": true
+            },
+            "interpretation_valid": true,
+            "interpretation_correct": true,
+            "interpretation_error": null,
+            "interpretation_seconds": 7.456592399859801,
+            "contract": {
+                "edge_id": "IND01",
+                "source": "Check Tests",
+                "target": "Deploy Code",
+                "condition": {
+                    "field": "tests_passed",
+                    "operator": "equals",
+                    "value": true
+                }
+            },
+            "contract_valid": true,
+            "graph_valid": true,
+            "routing_records": [
+                {
+                    "workflow_data": {
+                        "tests_passed": true
+                    },
+                    "expected_status": "ROUTED",
+                    "expected_next_node": "Deploy Code",
+                    "actual_status": "ROUTED",
+                    "actual_next_node": "Deploy Code",
+                    "correct": true,
+                    "routing_seconds": 2.119992859661579e-05
+                },
+                {
+                    "workflow_data": {
+                        "tests_passed": false
+                    },
+                    "expected_status": "NO_MATCH",
+                    "expected_next_node": null,
+                    "actual_status": "NO_MATCH",
+                    "actual_next_node": null,
+                    "correct": true,
+                    "routing_seconds": 8.400063961744308e-06
+                }
+            ]
+        },
+        {
+            "case_id": "IND02",
+            "text": "If a single test reports failure, send the code back for repairs.",
+            "expected_value": false,
+            "expected_target": "Fix Code",
+            "predicted_condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": false
+            },
+            "interpretation_valid": true,
+            "interpretation_correct": true,
+            "interpretation_error": null,
+            "interpretation_seconds": 4.984409799799323,
+            "contract": {
+                "edge_id": "IND02",
+                "source": "Check Tests",
+                "target": "Fix Code",
+                "condition": {
+                    "field": "tests_passed",
+                    "operator": "equals",
+                    "value": false
+                }
+            },
+            "contract_valid": true,
+            "graph_valid": true,
+            "routing_records": [
+                {
+                    "workflow_data": {
+                        "tests_passed": true
+                    },
+                    "expected_status": "NO_MATCH",
+                    "expected_next_node": null,
+                    "actual_status": "NO_MATCH",
+                    "actual_next_node": null,
+                    "correct": true,
+                    "routing_seconds": 8.299946784973145e-06
+                },
+                {
+                    "workflow_data": {
+                        "tests_passed": false
+                    },
+                    "expected_status": "ROUTED",
+                    "expected_next_node": "Fix Code",
+                    "actual_status": "ROUTED",
+                    "actual_next_node": "Fix Code",
+                    "correct": true,
+                    "routing_seconds": 6.8999361246824265e-06
+                }
+            ]
+        },
+        {
+            "case_id": "IND03",
+            "text": "Release the application only if no tests are failing.",
+            "expected_value": true,
+            "expected_target": "Deploy Code",
+            "predicted_condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": true
+            },
+            "interpretation_valid": true,
+            "interpretation_correct": true,
+            "interpretation_error": null,
+            "interpretation_seconds": 4.748879099963233,
+            "contract": {
+                "edge_id": "IND03",
+                "source": "Check Tests",
+                "target": "Deploy Code",
+                "condition": {
+                    "field": "tests_passed",
+                    "operator": "equals",
+                    "value": true
+                }
+            },
+            "contract_valid": true,
+            "graph_valid": true,
+            "routing_records": [
+                {
+                    "workflow_data": {
+                        "tests_passed": true
+                    },
+                    "expected_status": "ROUTED",
+                    "expected_next_node": "Deploy Code",
+                    "actual_status": "ROUTED",
+                    "actual_next_node": "Deploy Code",
+                    "correct": true,
+                    "routing_seconds": 9.799841791391373e-06
+                },
+                {
+                    "workflow_data": {
+                        "tests_passed": false
+                    },
+                    "expected_status": "NO_MATCH",
+                    "expected_next_node": null,
+                    "actual_status": "NO_MATCH",
+                    "actual_next_node": null,
+                    "correct": true,
+                    "routing_seconds": 5.500158295035362e-06
+                }
+            ]
+        },
+        {
+            "case_id": "IND04",
+            "text": "Any unsuccessful test should prevent deployment.",
+            "expected_value": false,
+            "expected_target": "Fix Code",
+            "predicted_condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": false
+            },
+            "interpretation_valid": true,
+            "interpretation_correct": true,
+            "interpretation_error": null,
+            "interpretation_seconds": 4.752422299934551,
+            "contract": {
+                "edge_id": "IND04",
+                "source": "Check Tests",
+                "target": "Fix Code",
+                "condition": {
+                    "field": "tests_passed",
+                    "operator": "equals",
+                    "value": false
+                }
+            },
+            "contract_valid": true,
+            "graph_valid": true,
+            "routing_records": [
+                {
+                    "workflow_data": {
+                        "tests_passed": true
+                    },
+                    "expected_status": "NO_MATCH",
+                    "expected_next_node": null,
+                    "actual_status": "NO_MATCH",
+                    "actual_next_node": null,
+                    "correct": true,
+                    "routing_seconds": 6.600050255656242e-06
+                },
+                {
+                    "workflow_data": {
+                        "tests_passed": false
+                    },
+                    "expected_status": "ROUTED",
+                    "expected_next_node": "Fix Code",
+                    "actual_status": "ROUTED",
+                    "actual_next_node": "Fix Code",
+                    "correct": true,
+                    "routing_seconds": 4.00003045797348e-06
+                }
+            ]
+        },
+        {
+            "case_id": "IND05",
+            "text": "When the complete test suite passes, move to the release stage.",
+            "expected_value": true,
+            "expected_target": "Deploy Code",
+            "predicted_condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": true
+            },
+            "interpretation_valid": true,
+            "interpretation_correct": true,
+            "interpretation_error": null,
+            "interpretation_seconds": 4.917244500014931,
+            "contract": {
+                "edge_id": "IND05",
+                "source": "Check Tests",
+                "target": "Deploy Code",
+                "condition": {
+                    "field": "tests_passed",
+                    "operator": "equals",
+                    "value": true
+                }
+            },
+            "contract_valid": true,
+            "graph_valid": true,
+            "routing_records": [
+                {
+                    "workflow_data": {
+                        "tests_passed": true
+                    },
+                    "expected_status": "ROUTED",
+                    "expected_next_node": "Deploy Code",
+                    "actual_status": "ROUTED",
+                    "actual_next_node": "Deploy Code",
+                    "correct": true,
+                    "routing_seconds": 9.299954399466515e-06
+                },
+                {
+                    "workflow_data": {
+                        "tests_passed": false
+                    },
+                    "expected_status": "NO_MATCH",
+                    "expected_next_node": null,
+                    "actual_status": "NO_MATCH",
+                    "actual_next_node": null,
+                    "correct": true,
+                    "routing_seconds": 5.09992241859436e-06
+                }
+            ]
+        },
+        {
+            "case_id": "IND06",
+            "text": "If the test results contain even one failure, return to development.",
+            "expected_value": false,
+            "expected_target": "Fix Code",
+            "predicted_condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": true
+            },
+            "interpretation_valid": true,
+            "interpretation_correct": false,
+            "interpretation_error": null,
+            "interpretation_seconds": 4.848058799980208,
+            "contract": {
+                "edge_id": "IND06",
+                "source": "Check Tests",
+                "target": "Fix Code",
+                "condition": {
+                    "field": "tests_passed",
+                    "operator": "equals",
+                    "value": true
+                }
+            },
+            "contract_valid": true,
+            "graph_valid": true,
+            "routing_records": [
+                {
+                    "workflow_data": {
+                        "tests_passed": true
+                    },
+                    "expected_status": "NO_MATCH",
+                    "expected_next_node": null,
+                    "actual_status": "ROUTED",
+                    "actual_next_node": "Fix Code",
+                    "correct": false,
+                    "routing_seconds": 9.499955922365189e-06
+                },
+                {
+                    "workflow_data": {
+                        "tests_passed": false
+                    },
+                    "expected_status": "ROUTED",
+                    "expected_next_node": "Fix Code",
+                    "actual_status": "NO_MATCH",
+                    "actual_next_node": null,
+                    "correct": false,
+                    "routing_seconds": 5.400041118264198e-06
+                }
+            ]
+        },
+        {
+            "case_id": "IND07",
+            "text": "Proceed with deployment provided that every test is successful.",
+            "expected_value": true,
+            "expected_target": "Deploy Code",
+            "predicted_condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": true
+            },
+            "interpretation_valid": true,
+            "interpretation_correct": true,
+            "interpretation_error": null,
+            "interpretation_seconds": 4.713365500094369,
+            "contract": {
+                "edge_id": "IND07",
+                "source": "Check Tests",
+                "target": "Deploy Code",
+                "condition": {
+                    "field": "tests_passed",
+                    "operator": "equals",
+                    "value": true
+                }
+            },
+            "contract_valid": true,
+            "graph_valid": true,
+            "routing_records": [
+                {
+                    "workflow_data": {
+                        "tests_passed": true
+                    },
+                    "expected_status": "ROUTED",
+                    "expected_next_node": "Deploy Code",
+                    "actual_status": "ROUTED",
+                    "actual_next_node": "Deploy Code",
+                    "correct": true,
+                    "routing_seconds": 1.1299969628453255e-05
+                },
+                {
+                    "workflow_data": {
+                        "tests_passed": false
+                    },
+                    "expected_status": "NO_MATCH",
+                    "expected_next_node": null,
+                    "actual_status": "NO_MATCH",
+                    "actual_next_node": null,
+                    "correct": true,
+                    "routing_seconds": 6.200047209858894e-06
+                }
+            ]
+        },
+        {
+            "case_id": "IND08",
+            "text": "Do not release the software when any test has failed.",
+            "expected_value": false,
+            "expected_target": "Fix Code",
+            "predicted_condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": false
+            },
+            "interpretation_valid": true,
+            "interpretation_correct": true,
+            "interpretation_error": null,
+            "interpretation_seconds": 4.7763361998368055,
+            "contract": {
+                "edge_id": "IND08",
+                "source": "Check Tests",
+                "target": "Fix Code",
+                "condition": {
+                    "field": "tests_passed",
+                    "operator": "equals",
+                    "value": false
+                }
+            },
+            "contract_valid": true,
+            "graph_valid": true,
+            "routing_records": [
+                {
+                    "workflow_data": {
+                        "tests_passed": true
+                    },
+                    "expected_status": "NO_MATCH",
+                    "expected_next_node": null,
+                    "actual_status": "NO_MATCH",
+                    "actual_next_node": null,
+                    "correct": true,
+                    "routing_seconds": 8.600065484642982e-06
+                },
+                {
+                    "workflow_data": {
+                        "tests_passed": false
+                    },
+                    "expected_status": "ROUTED",
+                    "expected_next_node": "Fix Code",
+                    "actual_status": "ROUTED",
+                    "actual_next_node": "Fix Code",
+                    "correct": true,
+                    "routing_seconds": 6.00004568696022e-06
+                }
+            ]
+        },
+        {
+            "case_id": "IND09",
+            "text": "The application may be deployed after all checks pass.",
+            "expected_value": true,
+            "expected_target": "Deploy Code",
+            "predicted_condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": true
+            },
+            "interpretation_valid": true,
+            "interpretation_correct": true,
+            "interpretation_error": null,
+            "interpretation_seconds": 4.8398036998696625,
+            "contract": {
+                "edge_id": "IND09",
+                "source": "Check Tests",
+                "target": "Deploy Code",
+                "condition": {
+                    "field": "tests_passed",
+                    "operator": "equals",
+                    "value": true
+                }
+            },
+            "contract_valid": true,
+            "graph_valid": true,
+            "routing_records": [
+                {
+                    "workflow_data": {
+                        "tests_passed": true
+                    },
+                    "expected_status": "ROUTED",
+                    "expected_next_node": "Deploy Code",
+                    "actual_status": "ROUTED",
+                    "actual_next_node": "Deploy Code",
+                    "correct": true,
+                    "routing_seconds": 9.800074622035027e-06
+                },
+                {
+                    "workflow_data": {
+                        "tests_passed": false
+                    },
+                    "expected_status": "NO_MATCH",
+                    "expected_next_node": null,
+                    "actual_status": "NO_MATCH",
+                    "actual_next_node": null,
+                    "correct": true,
+                    "routing_seconds": 5.400041118264198e-06
+                }
+            ]
+        },
+        {
+            "case_id": "IND10",
+            "text": "If the test suite is not fully successful, return the code for fixes.",
+            "expected_value": false,
+            "expected_target": "Fix Code",
+            "predicted_condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": false
+            },
+            "interpretation_valid": true,
+            "interpretation_correct": true,
+            "interpretation_error": null,
+            "interpretation_seconds": 4.884400699986145,
+            "contract": {
+                "edge_id": "IND10",
+                "source": "Check Tests",
+                "target": "Fix Code",
+                "condition": {
+                    "field": "tests_passed",
+                    "operator": "equals",
+                    "value": false
+                }
+            },
+            "contract_valid": true,
+            "graph_valid": true,
+            "routing_records": [
+                {
+                    "workflow_data": {
+                        "tests_passed": true
+                    },
+                    "expected_status": "NO_MATCH",
+                    "expected_next_node": null,
+                    "actual_status": "NO_MATCH",
+                    "actual_next_node": null,
+                    "correct": true,
+                    "routing_seconds": 9.499955922365189e-06
+                },
+                {
+                    "workflow_data": {
+                        "tests_passed": false
+                    },
+                    "expected_status": "ROUTED",
+                    "expected_next_node": "Fix Code",
+                    "actual_status": "ROUTED",
+                    "actual_next_node": "Fix Code",
+                    "correct": true,
+                    "routing_seconds": 6.800051778554916e-06
+                }
+            ]
+        }
+    ]
+}

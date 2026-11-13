@@ -1,0 +1,133 @@
+{
+    "summary": {
+        "total_cases": 10,
+        "semantic_matches": 8,
+        "semantic_mismatches": 2,
+        "other_validation_failures": 0,
+        "semantic_match_rate": 0.8,
+        "evaluation_type": "Oracle-based retrospective semantic validation",
+        "production_semantic_verification": false
+    },
+    "records": [
+        {
+            "case_id": "IND01",
+            "expected_value": true,
+            "semantic_validation": {
+                "valid": true,
+                "status": "SEMANTIC_MATCH",
+                "expected_value": true,
+                "actual_value": true
+            },
+            "structured_status": "ROUTED",
+            "structured_correct": true
+        },
+        {
+            "case_id": "IND02",
+            "expected_value": false,
+            "semantic_validation": {
+                "valid": true,
+                "status": "SEMANTIC_MATCH",
+                "expected_value": false,
+                "actual_value": false
+            },
+            "structured_status": "ROUTED",
+            "structured_correct": true
+        },
+        {
+            "case_id": "IND03",
+            "expected_value": true,
+            "semantic_validation": {
+                "valid": true,
+                "status": "SEMANTIC_MATCH",
+                "expected_value": true,
+                "actual_value": true
+            },
+            "structured_status": "ROUTED",
+            "structured_correct": true
+        },
+        {
+            "case_id": "IND04",
+            "expected_value": false,
+            "semantic_validation": {
+                "valid": true,
+                "status": "SEMANTIC_MATCH",
+                "expected_value": false,
+                "actual_value": false
+            },
+            "structured_status": "ROUTED",
+            "structured_correct": true
+        },
+        {
+            "case_id": "IND05",
+            "expected_value": true,
+            "semantic_validation": {
+                "valid": true,
+                "status": "SEMANTIC_MATCH",
+                "expected_value": true,
+                "actual_value": true
+            },
+            "structured_status": "ROUTED",
+            "structured_correct": true
+        },
+        {
+            "case_id": "IND06",
+            "expected_value": false,
+            "semantic_validation": {
+                "valid": false,
+                "status": "SEMANTIC_MISMATCH",
+                "expected_value": false,
+                "actual_value": true
+            },
+            "structured_status": "NO_MATCH",
+            "structured_correct": false
+        },
+        {
+            "case_id": "IND07",
+            "expected_value": true,
+            "semantic_validation": {
+                "valid": true,
+                "status": "SEMANTIC_MATCH",
+                "expected_value": true,
+                "actual_value": true
+            },
+            "structured_status": "ROUTED",
+            "structured_correct": true
+        },
+        {
+            "case_id": "IND08",
+            "expected_value": false,
+            "semantic_validation": {
+                "valid": true,
+                "status": "SEMANTIC_MATCH",
+                "expected_value": false,
+                "actual_value": false
+            },
+            "structured_status": "ROUTED",
+            "structured_correct": true
+        },
+        {
+            "case_id": "IND09",
+            "expected_value": true,
+            "semantic_validation": {
+                "valid": true,
+                "status": "SEMANTIC_MATCH",
+                "expected_value": true,
+                "actual_value": true
+            },
+            "structured_status": "ROUTED",
+            "structured_correct": true
+        },
+        {
+            "case_id": "IND10",
+            "expected_value": false,
+            "semantic_validation": {
+                "valid": false,
+                "status": "SEMANTIC_MISMATCH",
+                "expected_value": false,
+                "actual_value": true
+            },
+            "structured_status": "NO_MATCH",
+            "structured_correct": false
+        }
+    ]
+}

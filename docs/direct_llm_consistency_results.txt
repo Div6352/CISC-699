@@ -1,0 +1,33 @@
+
+CISC 699 Capstone II A2
+Direct LLM Routing Consistency Experiment
+
+Model: llama3.2:3b
+Temperature: 0
+Runs per scenario: 10
+Total runs: 20
+
+Scenario 1: Tests passed
+Expected: Deploy Code
+Correct runs: 10/10
+Unique responses: Deploy Code
+All runs identical: True
+
+Scenario 2: Tests failed
+Expected: Fix Code
+Correct runs: 0/10
+Unique responses: NO_MATCH
+All runs identical: True
+
+Overall accuracy: 10/20 = 50%
+Within-scenario consistency: 100%
+
+Finding:
+The direct LLM baseline produced identical responses
+across repeated executions but incorrectly selected
+NO_MATCH for every failed-test scenario.
+
+Limitation:
+This experiment used only two workflow states
+and a temperature setting of zero. Results should
+not be generalized to other prompts or models.

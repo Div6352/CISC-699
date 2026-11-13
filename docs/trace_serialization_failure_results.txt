@@ -1,0 +1,81 @@
+# CISC 699 — CAPSTONE II A2 RESEARCH
+## JSON SERIALIZATION FAILURE RESULTS
+
+**Research Topic:** Natural-Language Edge Semantics and Deterministic Agent Execution
+
+---
+
+### 1. EXPERIMENT OBJECTIVE
+
+The purpose of this experiment was to evaluate how the automatic execution tracing component behaves when workflow data contains an object that cannot be serialized into JSON.
+
+The experiment examined whether the serialization error was propagated and whether an incomplete JSON trace file remained after the failure.
+
+### 2. IMPLEMENTATION
+
+**Automatic Tracing Module:** `src/traced_contract_router.py`
+
+**Trace Saving Module:** `src/execution_trace.py`
+
+**Test File:** `src/test_trace_serialization_failure.py`
+
+The experiment used the `route_and_save_trace()` function with a temporary trace output directory.
+
+### 3. EXPERIMENTAL SETUP
+
+**Current Workflow Node:** Check Tests
+
+**Semantic Contract:**
+
+- Source: Check Tests
+- Target: Deploy Code
+- Condition: tests_passed equals True
+
+**Workflow Data:**
+
+```python
+{
+    "tests_passed": True,
+    "extra_metadata": {"alpha", "beta"}
+}
+```
+
+The required `tests_passed` field was valid.
+
+However, the additional metadata contained a Python `set`, which is not directly supported by Python's standard JSON encoder.
+
+The test used a temporary directory to isolate the experiment from existing research trace files.
+
+### 4. EXPECTED BEHAVIOR
+
+The experiment was designed to verify that:
+
+- Deterministic routing could process the required Boolean workflow field.
+- JSON serialization would raise a `TypeError`.
+- The exception would propagate to the calling program.
+- A partially written JSON file could remain after serialization failed.
+- The remaining file would not contain valid JSON.
+
+### 5. OBSERVED RESULTS
+
+| Measurement | Observed result |
+|---|---|
+| Serialization exception | `TypeError` |
+| Exception message | Object of type set is not JSON serializable |
+| Error detected | PASS |
+| Error propagated | PASS |
+| JSON files created | 1 |
+| Incomplete JSON file detected | PASS |
+| Overall test result | **PASS** |
+
+**Terminal confirmation:**
+
+```text
+Expected JSON serialization error detected.
+Exception type: TypeError
+Exception message: Object of type set is not JSON serializable
+JSON files created: 1
+Incomplete JSON file detected: PASS
+Serialization error propagated: PASS
+
+Overall result

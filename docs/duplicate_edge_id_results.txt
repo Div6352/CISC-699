@@ -1,0 +1,187 @@
+CISC 699 — CAPSTONE II A2 RESEARCH
+DUPLICATE EDGE IDENTIFIER EXPERIMENT RESULTS
+
+Research Topic:
+Natural-Language Edge Semantics and Deterministic Agent Execution
+
+==================================================
+1. EXPERIMENT OBJECTIVE
+==================================================
+
+The objective of this experiment was to determine whether the existing semantic contract validator detects duplicate edge identifiers across multiple contracts.
+
+The experiment compared individual contract validation with a separate cross-contract edge identifier uniqueness check.
+
+==================================================
+2. IMPLEMENTATION AND TEST FILES
+==================================================
+
+Validator Implementation:
+src/contract_validator.py
+
+Experiment Test File:
+src/test_duplicate_edge_ids.py
+
+The existing validate_contract() function checks that an edge identifier, when provided, is a nonempty string.
+
+However, the validator processes one contract at a time and does not compare edge identifiers across multiple contracts.
+
+The experiment introduced a separate check_unique_edge_ids() function within the test script.
+
+==================================================
+3. TEST METHODOLOGY
+==================================================
+
+Four collections of semantic contracts were constructed.
+
+Every contract contained:
+
+- A nonempty edge identifier.
+- A valid source node name.
+- A valid target node name.
+- A supported Boolean condition.
+
+Each contract was first checked using validate_contract().
+
+The separate uniqueness function then compared edge identifiers across the collection.
+
+The uniqueness function returned True when all identifiers were distinct and False when duplicates were present.
+
+Python assertions verified the expected results.
+
+==================================================
+4. TEST SCENARIOS AND RESULTS
+==================================================
+
+SCENARIO 1: TWO UNIQUE EDGE IDENTIFIERS
+
+Edge identifiers: E01, E02
+
+Individual contracts valid: True
+Edge identifiers unique: True
+
+Result: PASS
+
+SCENARIO 2: TWO DUPLICATE EDGE IDENTIFIERS
+
+Edge identifiers: E01, E01
+
+Individual contracts valid: True
+Edge identifiers unique: False
+
+Result: PASS
+
+SCENARIO 3: THREE CONTRACTS WITH ONE DUPLICATE IDENTIFIER
+
+Edge identifiers: E01, E02, E01
+
+Individual contracts valid: True
+Edge identifiers unique: False
+
+Result: PASS
+
+SCENARIO 4: THREE UNIQUE EDGE IDENTIFIERS
+
+Edge identifiers: E01, E02, E03
+
+Individual contracts valid: True
+Edge identifiers unique: True
+
+Result: PASS
+
+==================================================
+5. OBSERVED RESULTS
+==================================================
+
+Total scenarios tested: 4
+Passed scenarios: 4
+Failed scenarios: 0
+
+Collections with unique identifiers: 2
+Collections with duplicate identifiers: 2
+
+All individual contracts passed structural validation.
+
+The separate uniqueness check correctly distinguished the two unique collections from the two duplicate collections.
+
+Overall result: PASS
+
+Terminal confirmation:
+
+Total scenarios: 4
+Passed scenarios: 4
+
+Overall result: PASS
+All duplicate edge identifier tests passed!
+
+==================================================
+6. RESEARCH INTERPRETATION
+==================================================
+
+The experiment demonstrated that individual semantic contract validation does not guarantee edge identifier uniqueness across a collection of contracts.
+
+The existing validator accepted the structurally valid contracts regardless of whether their identifiers were duplicated in the collection.
+
+The separate uniqueness function correctly detected duplicate identifiers in both predefined duplicate scenarios.
+
+These findings demonstrate that structural contract validity and cross-contract identifier uniqueness are distinct validation requirements.
+
+==================================================
+7. DESIGN IMPLICATIONS
+==================================================
+
+A graph-based execution system may benefit from enforcing unique edge identifiers when those identifiers are used for contract references, debugging, or execution trace analysis.
+
+Duplicate identifiers could make it difficult to distinguish different semantic contracts.
+
+An additional validation stage could examine the complete contract collection before routing.
+
+Such a stage could:
+
+- Verify that every required edge identifier is present.
+- Reject duplicate identifiers.
+- Report the contracts associated with a duplicate identifier.
+- Preserve unambiguous contract references in execution traces.
+
+These are possible future improvements, not functionality implemented by this experiment.
+
+==================================================
+8. LIMITATIONS
+==================================================
+
+The experiment evaluated four predefined collections of contracts.
+
+Every tested contract included an edge identifier.
+
+The current validator treats edge_id as optional.
+
+Therefore, the experiment did not evaluate missing identifiers or define a policy for contracts without edge identifiers.
+
+The experiment also did not evaluate:
+
+- Case-sensitive versus case-insensitive identifier matching.
+- Identifier normalization.
+- Duplicate identifiers across separate workflow graphs.
+- Concurrent contract registration.
+- Integration of uniqueness validation into the production router.
+
+The separate uniqueness function was implemented only in the test script.
+
+==================================================
+9. CONCLUSION
+==================================================
+
+All four duplicate edge identifier test scenarios passed.
+
+The existing validator accepted each structurally valid contract.
+
+The separate cross-contract uniqueness check correctly identified collections containing duplicate edge identifiers.
+
+The experiment demonstrated that individual contract validation does not guarantee edge identifier uniqueness across a workflow contract collection.
+
+FINAL RESULT: PASS
+
+DUPLICATE EDGE IDENTIFIER TESTING: 4/4 SCENARIOS PASSED
+
+KEY FINDING:
+STRUCTURAL CONTRACT VALIDATION DOES NOT ENFORCE CROSS-CONTRACT EDGE IDENTIFIER UNIQUENESS.

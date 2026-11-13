@@ -1,0 +1,131 @@
+REFERENCES
+
+Arrieta, A. B., Díaz-Rodríguez, N., Del Ser, J., et al. (2020). Explainable artificial intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. Information Fusion, 58, 82-115. https://doi.org/10.1016/j.inffus.2019.12.012
+
+Geng, S., Cooper, H., Moskal, M., Jenkins, S., Berman, J., Ranchin, N., West, R., Horvitz, E., & Nori, H. (2025). Generating structured outputs from language models: Benchmark and studies. arXiv:2501.10868.
+
+Yang, J., Jimenez, C. E., Wettig, A., Lieret, K., Yao, S., Narasimhan, K., & Press, O. (2024). SWE-agent: Agent-computer interfaces enable automated software engineering. International Conference on Learning Representations. https://arxiv.org/abs/2405.15793
+
+Kleppmann, M. (2017). Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems. O'Reilly Media.
+
+LangChain, Inc. (2024). LangGraph documentation. https://langchainai.github.io/langgraph/
+
+Murata, T. (1989). Petri nets: Properties, analysis and applications. Proceedings of the IEEE, 77(4), 541-580. https://doi.org/10.1109/5.24143
+
+Russell, S., & Norvig, P. (2021). Artificial intelligence: A modern approach (4th ed.). Pearson.
+
+Shinn, N., Cassano, F., Gopinath, A., Narasimhan, K., & Yao, S. (2023). Reflexion: Language agents with verbal reinforcement learning. Advances in Neural Information Processing Systems, 36. https://doi.org/10.52202/075280-0377
+
+StrongDM. (2025). Software factory: Principles, techniques, and attractors for non-interactive software factories. StrongDM Research.
+
+Wang, X., Li, B., Song, Y., Xu, F. F., Tang, X., Zhuge, M., et al. (2024). OpenHands: An open platform for AI software developers as generalist agents. arXiv:2407.16741. https://arxiv.org/abs/2407.16741
+
+Wu, Q., Bansal, G., Zhang, J., Wu, Y., Li, B., Zhu, E., et al. (2024). AutoGen: Enabling next-generation LLM applications via multi-agent conversation. COLM 2024. https://arxiv.org/abs/2308.08155
+
+Yao, S., Zhao, J., Yu, D., Du, N., Shafran, I., Narasimhan, K., & Cao, Y. (2023). ReAct: Synergizing reasoning and acting in language models. International Conference on Learning Representations. https://arxiv.org/abs/2210.03629
+
+APPENDICES
+
+APPENDIX A - LITERATURE REVIEW MATRIX
+
+APPENDIX B - LITERATURE SEARCH STRINGS AND DATABASES
+
+APPENDIX C - SYSTEM ARCHITECTURE AND WORKFLOW DIAGRAMS
+
+APPENDIX D - STRUCTURED SEMANTIC CONTRACT SPECIFICATION
+
+APPENDIX E - EXPERIMENTAL SCENARIO SET
+
+APPENDIX F - EXPECTED-ROUTE ORACLE
+
+APPENDIX G - DATA DICTIONARY AND EXECUTION RECORD
+
+APPENDIX H - EVALUATION INSTRUMENTS AND TEST PROTOCOLS
+
+APPENDIX I - FINAL PRESENTATION TO PROPOSAL TRACEABILITY CHECK
+
+This appendix provides a final alignment check between the GRAD 695 final proposal presentation and the written proposal. It is a quality-control artifact and does not introduce empirical findings.
+
+Presentation element
+
+Proposal location
+
+Alignment check
+
+Title / A2 topic
+
+Title page; Chapters 1-3
+
+Same research title and A2 direction.
+
+Research gap
+
+Chapter 1.7; Chapter 2
+
+Natural-language edge semantics is the focused gap within workflow control.
+
+Research question
+
+Chapter 1.8
+
+Matches the approved presentation in substance.
+
+Scope
+
+Chapter 1.14-1.17
+
+Controlled graph workflow; limited model coverage; no universal claims.
+
+Solution
+
+Chapter 3
+
+Natural language -> contract -> validation -> deterministic evaluation -> route -> trace.
+
+AI role
+
+Chapters 3-4
+
+LLM interprets; deterministic software performs final route evaluation.
+
+Evaluation
+
+Chapter 4
+
+Baseline Direct LLM Routing versus Proposed Structured Semantic-Contract Routing.
+
+Metrics
+
+Chapter 4.16-4.20
+
+Consistency, repeatability, expected-route accuracy, trace completeness; secondary validation and overhead.
+
+Capstone II
+
+Chapter 5
+
+Design, prototype, benchmark, pilot, experiment, analysis, thesis output.
+
+Expected contribution
+
+Chapter 6
+
+Structured semantics, validation, deterministic execution boundary, auditability, evaluation method.
+
+Results status
+
+Abstract; Chapter 6
+
+No Capstone II experimental results are presented as completed.
+
+SUBMITTED BY
+
+BRAHMBHATT DIVYAM NIKUNJKUMAR
+
+FACULTY ADVISOR
+
+Abdelhaq Ejnioui
+
+DEPARTMENT
+
+Computer Science

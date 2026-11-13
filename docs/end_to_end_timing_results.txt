@@ -1,0 +1,43 @@
+
+CISC 699 Capstone II A2
+Structured Workflow End-to-End Timing Experiment
+
+Model: llama3.2:3b
+Temperature: 0
+
+Natural-language conditions interpreted: 2
+Semantic contracts constructed: 2
+Workflow states evaluated: 2
+
+Scenario 1:
+Tests passed
+Expected: Deploy Code
+Actual: Deploy Code
+Result: CORRECT
+
+Scenario 2:
+Tests failed
+Expected: Fix Code
+Actual: Fix Code
+Result: CORRECT
+
+Contract construction time: 12.751028 seconds
+Routing time for both scenarios: 0.000355 seconds
+Total measured time: 12.751383 seconds
+
+Routing accuracy: 2/2 = 100%
+
+Finding:
+The structured approach correctly routed both workflow
+states after constructing semantic contracts with Ollama.
+
+Most measured time was spent on contract construction.
+Deterministic routing was comparatively fast.
+
+Limitations:
+- This was a single timing run.
+- Only two natural-language conditions were used.
+- Contracts were reused across two routing decisions.
+- The result is not directly comparable to the
+  latency of one direct LLM routing request.
+- More repeated measurements are required.

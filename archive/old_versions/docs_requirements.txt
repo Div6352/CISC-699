@@ -1,0 +1,10 @@
+
+# CISC 699 Capstone II A2
+# Python version used: 3.14.10
+#
+# No third-party Python packages are currently required.
+# The project uses Python standard-library modules.
+#
+# External runtime dependency:
+# Ollama with the llama3.2:3b model
+# Ollama is installed separately, not through pip.

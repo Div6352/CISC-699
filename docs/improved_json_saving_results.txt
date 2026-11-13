@@ -1,0 +1,154 @@
+# CISC 699 — CAPSTONE II A2 RESEARCH
+## IMPROVED JSON EXECUTION TRACE SAVING RESULTS
+
+**Research Topic:** Natural-Language Edge Semantics and Deterministic Agent Execution
+
+---
+
+### 1. EXPERIMENT OBJECTIVE
+
+The purpose of this experiment was to verify that an improved execution trace-saving implementation prevents incomplete JSON destination files when serialization fails.
+
+The experiment also evaluated whether an existing valid JSON trace remains unchanged after an unsuccessful replacement attempt.
+
+### 2. IMPLEMENTATION
+
+**Trace Creation and Saving Module:** `src/execution_trace.py`
+
+**Automatic Tracing Module:** `src/traced_contract_router.py`
+
+**Test File:** `src/test_trace_serialization_failure.py`
+
+The trace-saving implementation was modified to:
+
+- Serialize the complete trace into JSON before opening an output file.
+- Write serialized content to a temporary file in the destination directory.
+- Flush and synchronize the temporary file.
+- Replace the destination using `os.replace()` after writing succeeds.
+- Attempt to remove temporary files if writing or replacement fails.
+
+The existing `create_execution_trace()` and `save_execution_trace()` function interfaces were preserved.
+
+### 3. ORIGINAL IMPLEMENTATION RESULTS
+
+Before the improvement, the trace-saving function wrote JSON directly to the destination file using `json.dump()`.
+
+The original serialization failure experiment supplied workflow data containing a Python `set`.
+
+The experiment produced:
+
+- A `TypeError` indicating that the set was not JSON serializable.
+- One partially written JSON file.
+- An invalid JSON document remaining after the failure.
+
+**Original Experiment Result:** PASS — the expected failure behavior was confirmed.
+
+**Original Evidence File:** `docs/trace_serialization_failure_results.txt`
+
+### 4. IMPROVED IMPLEMENTATION TEST SETUP
+
+The improved implementation was evaluated using two tests.
+
+**Test 1 — Prevent Incomplete Trace Creation**
+
+A valid semantic contract was evaluated with workflow data containing:
+
+```python
+{
+    "tests_passed": True,
+    "extra_metadata": {"alpha", "beta"}
+}
+```
+
+The required Boolean field was valid, but the additional Python set could not be serialized.
+
+The test checked that serialization failed before any trace file was created.
+
+**Test 2 — Preserve Existing JSON Trace**
+
+An existing valid JSON trace was saved to a temporary test directory.
+
+A replacement attempt was then made using an invalid trace containing a Python set.
+
+The test checked that the original JSON content remained unchanged and that no temporary files remained.
+
+### 5. OBSERVED RESULTS
+
+| Measurement | Observed result |
+|---|---|
+| Serialization error detected | PASS |
+| Exception type | `TypeError` |
+| Error propagated | PASS |
+| No incomplete JSON trace created | PASS |
+| Existing JSON trace preserved | PASS |
+| No temporary files remaining | PASS |
+| Overall test result | **PASS** |
+
+**Terminal confirmation:**
+
+```text
+Exception type: TypeError
+Exception message: Object of type set is not JSON serializable
+No incomplete trace file created: PASS
+Serialization error propagated: PASS
+Existing JSON trace preserved: PASS
+No temporary files left behind: PASS
+
+Overall result: PASS
+All improved JSON serialization failure tests passed!
+```
+
+### 6. BEFORE-AND-AFTER COMPARISON
+
+| Evaluation | Before improvement | After improvement |
+|---|---|---|
+| Serialization error propagated | Yes | Yes |
+| Incomplete destination file created | Yes | No |
+| Serialization completed before writing | No | Yes |
+| Temporary-file writing | No | Yes |
+| Existing destination preservation after failed serialization | Not tested | Verified |
+| Temporary-file cleanup | Not implemented | Implemented |
+
+The revised implementation eliminated the incomplete destination file observed in the original serialization failure experiment.
+
+### 7. RESEARCH INTERPRETATION
+
+The results demonstrate an improvement in execution trace storage reliability for the tested JSON serialization failure.
+
+By serializing the trace before writing and using temporary-file replacement, the revised implementation avoids modifying the destination when JSON serialization fails.
+
+The experiment also confirmed that an existing valid JSON trace was preserved after an unsuccessful serialization attempt.
+
+These findings support the execution monitoring and traceability component of the proposed deterministic agent execution architecture.
+
+### 8. LIMITATIONS
+
+The experiment covered two predefined serialization-related test cases.
+
+It did not evaluate:
+
+- Disk-full conditions.
+- Permission-denied errors.
+- Interrupted writes or system crashes.
+- Concurrent trace-writing operations.
+- Atomic replacement behavior across different file systems.
+- Automatic recovery or retry.
+- Long-term trace storage reliability.
+
+Although `os.replace()` provides atomic replacement where supported, the experiment did not independently verify crash durability or every possible file-system failure.
+
+Therefore, the results establish an improvement for the tested serialization failure conditions rather than comprehensive storage fault tolerance.
+
+### 9. CONCLUSION
+
+The improved JSON trace-saving implementation passed all updated test assertions.
+
+The system correctly propagated the serialization error without leaving an incomplete destination file.
+
+An existing valid JSON trace also remained unchanged after a failed replacement attempt.
+
+The before-and-after results demonstrate that the revised implementation resolved the specific incomplete-file behavior identified in the original experiment.
+
+**FINAL RESULT: PASS**
+
+**VERIFIED IMPROVEMENT:** Failed JSON serialization did not create or corrupt a destination trace file in the tested scenarios.

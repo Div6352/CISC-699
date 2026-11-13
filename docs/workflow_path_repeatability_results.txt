@@ -1,0 +1,69 @@
+CISC 699 - Capstone II A2
+Workflow-Path Repeatability Evaluation Results
+
+Experiment: Deterministic Workflow-Path Repeatability
+Date: November 6, 2026
+
+OBJECTIVE
+Evaluate whether a deterministic semantic-contract router produces identical workflow paths across repeated executions with identical inputs.
+
+EXPERIMENTAL SETUP
+The experiment used a simplified workflow containing four nodes:
+
+1. Start
+2. Check Tests
+3. Deploy Code
+4. Fix Code
+
+The initial transition from Start to Check Tests was predefined in the test setup.
+
+The transition from Check Tests to either Deploy Code or Fix Code was controlled by validated semantic contracts.
+
+Two scenarios were evaluated:
+- Scenario 1: tests_passed = True
+- Scenario 2: tests_passed = False
+
+Each scenario was executed 10 times, for a total of 20 executions.
+
+RESULTS
+
+Scenario 1: Tests Passed
+Expected path: Start -> Check Tests -> Deploy Code
+Observed path: Start -> Check Tests -> Deploy Code
+Executions: 10
+Correct executions: 10
+Path repeatability: 100%
+Result: PASS
+
+Scenario 2: Tests Failed
+Expected path: Start -> Check Tests -> Fix Code
+Observed path: Start -> Check Tests -> Fix Code
+Executions: 10
+Correct executions: 10
+Path repeatability: 100%
+Result: PASS
+
+OVERALL RESULTS
+Total executions: 20
+Correct executions: 20
+Expected-path accuracy: 100%
+Within-scenario path repeatability: 100%
+Overall test status: PASS
+
+INTERPRETATION
+Under the tested conditions, identical workflow inputs produced identical execution paths across repeated runs.
+
+The deterministic semantic-contract router selected Deploy Code when tests_passed was True and Fix Code when tests_passed was False.
+
+These findings support the feasibility of repeatable workflow routing using validated semantic contracts in the tested prototype.
+
+LIMITATIONS
+1. The experiment used a small, predefined workflow.
+2. The initial Start-to-Check Tests transition was fixed test setup rather than a semantic-contract decision.
+3. Only two Boolean workflow states were tested.
+4. The experiment did not measure language-model variability during contract generation.
+5. The results do not establish repeatability for larger, dynamically generated
+CONCLUSION
+The prototype achieved 100% within-scenario workflow-path repeatability and 100% expected-path accuracy across 20 executions in the simplified test workflow.
+
+The results provide preliminary evidence supporting deterministic execution decisions after semantic contracts have been defined and validated.

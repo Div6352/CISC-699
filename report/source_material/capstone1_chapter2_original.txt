@@ -1,0 +1,87 @@
+CHAPTER 2 - LITERATURE REVIEW
+
+2.1 Introduction
+
+The development of autonomous software-engineering systems has expanded the role of artificial intelligence from developer assistance toward increasingly autonomous execution of software-development tasks. Recent systems demonstrate the ability of language-model-based agents to interact with repositories, tools, execution environments, and software-development workflows. Research such as SWE-agent and OpenHands illustrates this transition from conventional language generation toward agent-based software engineering in which an AI system can plan, act, observe execution results, and modify software artifacts. (Yang et al., 2024)
+
+2.2 Literature Search Strategy
+
+The literature search strategy was designed around the research question:
+
+2.3 Autonomous Software-Engineering Agents
+
+Artificial intelligence has increasingly moved from providing isolated developer assistance toward systems capable of performing multiple stages of software engineering. Modern coding agents can interact with files, repositories, command-line tools, tests, and other execution environments. This evolution changes the role of an AI model from a system that primarily produces suggestions to a system that can participate in an executable software-development process.
+
+SWE-agent represents an important example of this transition. The system investigates how an agent-computer interface can provide language-model agents with effective mechanisms for interacting with software repositories and development tools. Its emphasis on repository navigation, file modification, command execution, and testing demonstrates that successful software-engineering agents require more than language generation; they require interaction mechanisms that connect reasoning to executable actions. (Yang et al., 2024) (Yang et al., 2024)
+
+2.4 Graph-Based Workflow Orchestration
+
+Graph-based orchestration provides a natural representation for autonomous workflows because the execution process can be represented as a collection of states and transitions.
+
+A simplified graph can be represented as:
+
+2.5 Natural-Language Reasoning and Decision Making
+
+ReAct demonstrated a framework in which language models interleave reasoning and actions. This work is important because it illustrates how language-model reasoning can influence external actions rather than remaining entirely within generated text. (Yao et al., 2023)
+
+For autonomous software engineering, this principle enables an agent to reason about a repository, perform an action, observe the resulting state, and determine what to do next.
+
+2.6 Workflow Reliability, Observability, and Explainability
+
+Reliable workflow execution requires more than achieving a successful final outcome. A reliable workflow should provide predictable behavior under equivalent conditions, clearly defined transition criteria, and mechanisms for identifying execution failures.
+
+In autonomous software-development workflows, reliability may be affected by:
+
+2.7 Natural-Language Edge Semantics and Deterministic Agent Execution
+
+The central problem addressed by this research exists at the boundary between language interpretation and workflow execution.
+
+An LLM-based workflow may instead use:
+
+2.8 Relevant Methods, Frameworks, and Evaluation Foundations
+
+The literature provides several methodological foundations that inform the proposed research.
+
+2.9 Comparison of Existing Approaches
+
+2.10 What Existing Literature Already Addresses
+
+The literature establishes a strong foundation in several areas.
+
+Table 2.1 - Literature Themes and Identified Gap
+
+Theme
+
+Representative foundation
+
+Remaining issue relevant to A2
+
+Autonomous SE agents
+
+SWE-agent; OpenHands
+
+Agent capability does not by itself define transition semantics.
+
+Graph orchestration
+
+LangGraph; AutoGen
+
+Conditional routing exists, but natural-language edge semantics remain under-specified.
+
+Reasoning and reflection
+
+ReAct; Reflexion
+
+Reasoning improves decision support but does not guarantee deterministic routing.
+
+Evaluation and explainability
+
+Structured evaluation; XAI
+
+Process evidence can be improved through explicit traces and measurable metrics.
+
+Research direction
+
+StrongDM software-factory context
+
+A2 focuses on a structured semantic boundary between language interpretation and execution.

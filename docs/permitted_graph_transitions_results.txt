@@ -1,0 +1,116 @@
+CISC 699 — CAPSTONE II A2 RESEARCH
+PERMITTED WORKFLOW GRAPH TRANSITIONS — EXPERIMENT RESULTS
+
+Research Topic:
+Natural-Language Edge Semantics and Deterministic Agent Execution
+
+==================================================
+1. EXPERIMENT OBJECTIVE
+==================================================
+
+The objective of this experiment was to determine whether structurally valid semantic contracts necessarily reference permitted workflow graph transitions.
+
+The experiment compared structural contract validation with a separate graph-level transition permission check.
+
+==================================================
+2. IMPLEMENTATION AND TEST FILES
+==================================================
+
+Validator Implementation:
+src/contract_validator.py
+
+Experiment Test File:
+src/test_permitted_graph_transitions.py
+
+The existing validate_contract() function checks required contract fields and supported condition values.
+
+It does not receive a workflow graph and does not verify whether a source-to-target transition is permitted.
+
+The experiment introduced a separate check_permitted_transition() function within the test script.
+
+==================================================
+3. EXPERIMENTAL WORKFLOW GRAPH
+==================================================
+
+Workflow Nodes:
+
+- Start
+- Check Tests
+- Deploy Code
+- Fix Code
+
+Permitted Directed Transitions:
+
+- Start → Check Tests
+- Check Tests → Deploy Code
+- Check Tests → Fix Code
+
+The permitted transitions were represented as source-target tuples in a Python set.
+
+This graph was defined specifically for the experiment.
+
+==================================================
+4. TEST METHODOLOGY
+==================================================
+
+Seven semantic contracts were constructed.
+
+Each contract contained structurally valid fields and a supported Boolean condition.
+
+The contracts differed in their source and target node names.
+
+For each contract, two checks were performed:
+
+1. Structural validation using validate_contract().
+2. Graph transition permission using check_permitted_transition().
+
+Python assertions verified that structural validation returned True and that the graph permission check matched the expected result.
+
+==================================================
+5. TEST SCENARIOS AND RESULTS
+==================================================
+
+SCENARIO 1: PERMITTED DEPLOY TRANSITION
+
+Source: Check Tests
+Target: Deploy Code
+
+Structural validation: True
+Permitted graph transition: True
+
+Result: PASS
+
+SCENARIO 2: PERMITTED FIX TRANSITION
+
+Source: Check Tests
+Target: Fix Code
+
+Structural validation: True
+Permitted graph transition: True
+
+Result: PASS
+
+SCENARIO 3: PERMITTED START TRANSITION
+
+Source: Start
+Target: Check Tests
+
+Structural validation: True
+Permitted graph transition: True
+
+Result: PASS
+
+SCENARIO 4: PROHIBITED REVERSE TRANSITION
+
+Source: Deploy Code
+Target: Start
+
+Structural validation: True
+Permitted graph transition: False
+
+Result: PASS
+
+SCENARIO 5: PROHIBITED SHORTCUT
+
+Source: Start
+Target: Deploy

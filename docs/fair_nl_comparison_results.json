@@ -1,0 +1,253 @@
+{
+    "edges": [
+        {
+            "edge_id": "E01",
+            "source": "Check Tests",
+            "target": "Deploy Code",
+            "text": "If all software tests have passed, proceed to deployment.",
+            "expected_value": true
+        },
+        {
+            "edge_id": "E02",
+            "source": "Check Tests",
+            "target": "Fix Code",
+            "text": "If any software test has failed, return to fixing the code.",
+            "expected_value": false
+        }
+    ],
+    "interpretation_records": [
+        {
+            "edge_id": "E01",
+            "text": "If all software tests have passed, proceed to deployment.",
+            "expected_value": true,
+            "predicted_condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": true
+            },
+            "interpretation_correct": true,
+            "contract_valid": true,
+            "interpretation_seconds": 4.376242900034413,
+            "error": null
+        },
+        {
+            "edge_id": "E02",
+            "text": "If any software test has failed, return to fixing the code.",
+            "expected_value": false,
+            "predicted_condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": false
+            },
+            "interpretation_correct": true,
+            "contract_valid": true,
+            "interpretation_seconds": 4.7121262000873685,
+            "error": null
+        }
+    ],
+    "contracts": [
+        {
+            "edge_id": "E01",
+            "source": "Check Tests",
+            "target": "Deploy Code",
+            "condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": true
+            }
+        },
+        {
+            "edge_id": "E02",
+            "source": "Check Tests",
+            "target": "Fix Code",
+            "condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": false
+            }
+        }
+    ],
+    "summary": {
+        "experiment": "Matched natural-language edge routing comparison",
+        "model": "llama3.2:3b",
+        "temperature": 0,
+        "distinct_workflow_states": 2,
+        "repeats_per_state": 5,
+        "total_decisions_per_method": 10,
+        "direct_correct": 5,
+        "structured_correct": 10,
+        "direct_accuracy": 0.5,
+        "structured_accuracy": 1.0,
+        "correct_edge_interpretations": 2,
+        "total_edge_interpretations": 2,
+        "contract_construction_seconds": 9.088407899951562,
+        "total_direct_seconds": 22.486749599454924,
+        "total_structured_routing_seconds": 0.00021900027059018612,
+        "total_structured_seconds_including_construction": 9.088626900222152,
+        "average_direct_seconds": 2.2486749599454923,
+        "average_structured_routing_seconds": 2.190002705901861e-05,
+        "amortized_structured_seconds_per_decision": 0.9088626900222152,
+        "limitations": [
+            "Only two distinct workflow states are evaluated.",
+            "The structured approach interprets edges once and reuses the generated contracts.",
+            "The direct LLM receives the natural-language edges on every routing call.",
+            "Both approaches use the same underlying Ollama model.",
+            "Contract interpretation errors are retained.",
+            "The benchmark supplies expected Boolean values only for scoring.",
+            "The experiment does not measure full graph execution or execution-trace persistence.",
+            "Timing results depend on hardware and model warm-up."
+        ]
+    },
+    "records": [
+        {
+            "case_id": "PASS",
+            "run": 1,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected": "Deploy Code",
+            "direct_result": "Deploy Code",
+            "direct_correct": true,
+            "direct_seconds": 2.221513899974525,
+            "structured_result": "Deploy Code",
+            "structured_status": "ROUTED",
+            "structured_correct": true,
+            "structured_seconds": 3.4499913454055786e-05
+        },
+        {
+            "case_id": "PASS",
+            "run": 2,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected": "Deploy Code",
+            "direct_result": "Deploy Code",
+            "direct_correct": true,
+            "direct_seconds": 2.245495299808681,
+            "structured_result": "Deploy Code",
+            "structured_status": "ROUTED",
+            "structured_correct": true,
+            "structured_seconds": 2.140016295015812e-05
+        },
+        {
+            "case_id": "PASS",
+            "run": 3,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected": "Deploy Code",
+            "direct_result": "Deploy Code",
+            "direct_correct": true,
+            "direct_seconds": 2.2690228999126703,
+            "structured_result": "Deploy Code",
+            "structured_status": "ROUTED",
+            "structured_correct": true,
+            "structured_seconds": 1.650000922381878e-05
+        },
+        {
+            "case_id": "PASS",
+            "run": 4,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected": "Deploy Code",
+            "direct_result": "Deploy Code",
+            "direct_correct": true,
+            "direct_seconds": 2.2654505998361856,
+            "structured_result": "Deploy Code",
+            "structured_status": "ROUTED",
+            "structured_correct": true,
+            "structured_seconds": 1.910002902150154e-05
+        },
+        {
+            "case_id": "PASS",
+            "run": 5,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected": "Deploy Code",
+            "direct_result": "Deploy Code",
+            "direct_correct": true,
+            "direct_seconds": 2.243411700008437,
+            "structured_result": "Deploy Code",
+            "structured_status": "ROUTED",
+            "structured_correct": true,
+            "structured_seconds": 2.41999514400959e-05
+        },
+        {
+            "case_id": "FAIL",
+            "run": 1,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected": "Fix Code",
+            "direct_result": "Deploy Code",
+            "direct_correct": false,
+            "direct_seconds": 2.243917499901727,
+            "structured_result": "Fix Code",
+            "structured_status": "ROUTED",
+            "structured_correct": true,
+            "structured_seconds": 2.059992402791977e-05
+        },
+        {
+            "case_id": "FAIL",
+            "run": 2,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected": "Fix Code",
+            "direct_result": "Deploy Code",
+            "direct_correct": false,
+            "direct_seconds": 2.256663100095466,
+            "structured_result": "Fix Code",
+            "structured_status": "ROUTED",
+            "structured_correct": true,
+            "structured_seconds": 2.200016751885414e-05
+        },
+        {
+            "case_id": "FAIL",
+            "run": 3,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected": "Fix Code",
+            "direct_result": "Deploy Code",
+            "direct_correct": false,
+            "direct_seconds": 2.2733897999860346,
+            "structured_result": "Fix Code",
+            "structured_status": "ROUTED",
+            "structured_correct": true,
+            "structured_seconds": 2.110004425048828e-05
+        },
+        {
+            "case_id": "FAIL",
+            "run": 4,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected": "Fix Code",
+            "direct_result": "Deploy Code",
+            "direct_correct": false,
+            "direct_seconds": 2.22306549991481,
+            "structured_result": "Fix Code",
+            "structured_status": "ROUTED",
+            "structured_correct": true,
+            "structured_seconds": 1.750001683831215e-05
+        },
+        {
+            "case_id": "FAIL",
+            "run": 5,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected": "Fix Code",
+            "direct_result": "Deploy Code",
+            "direct_correct": false,
+            "direct_seconds": 2.2448193000163883,
+            "structured_result": "Fix Code",
+            "structured_status": "ROUTED",
+            "structured_correct": true,
+            "structured_seconds": 2.210005186498165e-05
+        }
+    ]
+}

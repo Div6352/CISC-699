@@ -1,0 +1,63 @@
+{
+    "timestamp": "2026-11-13T06:03:15.770396+00:00",
+    "current_node": "Check Tests",
+    "workflow_data": {
+        "tests_passed": true
+    },
+    "evaluated_contracts": [
+        {
+            "source": "Check Tests",
+            "target": "Deploy Code",
+            "condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": true
+            }
+        },
+        {
+            "source": "Check Tests",
+            "target": "Review Code",
+            "condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": true
+            }
+        }
+    ],
+    "routing_status": "AMBIGUOUS",
+    "selected_next_node": null,
+    "matched_contracts": [
+        {
+            "source": "Check Tests",
+            "target": "Deploy Code",
+            "condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": true
+            }
+        },
+        {
+            "source": "Check Tests",
+            "target": "Review Code",
+            "condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": true
+            }
+        }
+    ],
+    "validation_results": [
+        {
+            "source": "Check Tests",
+            "target": "Deploy Code",
+            "valid": true
+        },
+        {
+            "source": "Check Tests",
+            "target": "Review Code",
+            "valid": true
+        }
+    ],
+    "decision_explanation": "Multiple contracts matched the current workflow state. Routing was stopped to avoid an ambiguous decision.",
+    "trace_id": "fedd2c2535ab4e8ca413e8094cb4cfa5"
+}

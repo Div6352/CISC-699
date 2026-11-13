@@ -1,0 +1,73 @@
+CISC 699 - Capstone II A2
+Improved Workflow-Data Validation and Execution Traceability Results
+
+Experiment: Workflow-Data Validation and Traceability
+Date: November 8, 2026
+
+OBJECTIVE
+
+Evaluate whether the deterministic semantic-contract router can identify missing or invalid workflow data, prevent unintended workflow transitions, and record validation failures in execution traces.
+
+EXPERIMENTAL SETUP
+
+The prototype used two semantic contracts:
+
+Contract 1:
+Source: Check Tests
+Target: Deploy Code
+Condition: tests_passed equals True
+
+Contract 2:
+Source: Check Tests
+Target: Fix Code
+Condition: tests_passed equals False
+
+The router was enhanced to distinguish between five decision outcomes:
+
+1. ROUTED
+2. NO_MATCH
+3. AMBIGUOUS
+4. INVALID_CONTRACT
+5. INVALID_WORKFLOW_DATA
+
+The improved workflow-data safety test evaluated eight scenarios, including missing values, invalid Boolean types, and malformed workflow-data containers.
+
+A separate traceability test evaluated whether an INVALID_WORKFLOW_DATA result could be recorded, saved to JSON, and read back successfully.
+
+EXPERIMENT 1: WORKFLOW-DATA SAFETY
+
+Test scenarios:
+1. Missing tests_passed field
+2. tests_passed equals None
+3. tests_passed is a string
+4. tests_passed is an integer
+5. tests_passed is an empty string
+6. tests_passed is a list
+7. workflow_data is None
+8. workflow_data is a list
+
+Results:
+Total scenarios: 8
+Passed scenarios: 8
+Failed scenarios: 0
+Unintended routing decisions: 0
+Test pass rate: 100%
+
+All eight scenarios returned INVALID_WORKFLOW_DATA without selecting a destination.
+
+EXPERIMENT 2: ROUTING DECISION EXPLANATIONS
+
+The updated decision-explanation test evaluated all five routing statuses.
+
+Results:
+ROUTED: PASS
+NO_MATCH: PASS
+AMBIGUOUS: PASS
+INVALID_CONTRACT: PASS
+INVALID_WORKFLOW_DATA: PASS
+
+Total scenarios: 5
+Passed scenarios: 5
+Test pass rate: 100%
+
+The test confirmed that each scenario produced its expected status, destination behavior

@@ -1,0 +1,55 @@
+CISC 699 - Capstone II A2
+Missing and Invalid Workflow Data Safety Evaluation
+
+Experiment: Missing and Invalid Workflow Data Handling
+Date: November 6, 2026
+
+OBJECTIVE
+
+Evaluate whether the deterministic semantic-contract router prevents unintended workflow transitions when required workflow data is missing or has an invalid data type.
+
+EXPERIMENTAL SETUP
+
+The experiment used two validated semantic contracts:
+
+Contract 1:
+Source: Check Tests
+Target: Deploy Code
+Condition: tests_passed equals True
+
+Contract 2:
+Source: Check Tests
+Target: Fix Code
+Condition: tests_passed equals False
+
+The router was tested with six workflow-data scenarios.
+
+TEST SCENARIOS AND RESULTS
+
+1. Missing tests_passed field
+   Input: {}
+   Routing status: NO_MATCH
+   Selected destination: None
+   Result: PASS
+
+2. Null workflow value
+   Input: {"tests_passed": None}
+   Routing status: NO_MATCH
+   Selected destination: None
+   Result: PASS
+
+3. String workflow value
+   Input: {"tests_passed": "True"}
+   Routing status: NO_MATCH
+   Selected destination: None
+   Result: PASS
+
+4. Integer workflow value
+   Input: {"tests_passed": 1}
+   Routing status: NO_MATCH
+   Selected destination: None
+   Result: PASS
+
+5. Empty string workflow value
+   Input: {"tests_passed": ""}
+   Routing

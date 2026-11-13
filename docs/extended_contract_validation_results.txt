@@ -1,0 +1,171 @@
+CISC 699 — CAPSTONE II A2 RESEARCH
+EXTENDED SEMANTIC CONTRACT VALIDATION RESULTS
+
+Research Topic:
+Natural-Language Edge Semantics and Deterministic Agent Execution
+
+==================================================
+1. EXPERIMENT OBJECTIVE
+==================================================
+
+The objective of this experiment was to evaluate whether the structured semantic contract validator correctly rejects malformed or unsupported contracts before they can be used for deterministic workflow routing.
+
+The experiment focused on invalid contract structures, missing required fields, unsupported condition definitions, and incorrect data types.
+
+==================================================
+2. IMPLEMENTATION AND TEST FILES
+==================================================
+
+Validator Implementation:
+src/contract_validator.py
+
+Extended Validation Test:
+src/test_extended_contract_validation.py
+
+The validator checks the following requirements:
+
+- The contract must be a dictionary.
+- The source node must be a nonempty string.
+- The target node must be a nonempty string.
+- The optional edge identifier must be a nonempty string.
+- The condition must be a dictionary.
+- The condition field must equal "tests_passed".
+- The condition operator must equal "equals".
+- The condition value must be a Boolean.
+
+==================================================
+3. TEST METHODOLOGY
+==================================================
+
+Twelve invalid contract scenarios were defined.
+
+Each invalid contract was submitted to the validate_contract() function.
+
+The expected result for every scenario was False.
+
+Python assertions were used to verify that each invalid contract was rejected.
+
+The test was considered successful only if all twelve scenarios returned False.
+
+==================================================
+4. TEST SCENARIOS
+==================================================
+
+Scenario 1:
+Contract is None
+Expected Result: False
+
+Scenario 2:
+Contract is a list
+Expected Result: False
+
+Scenario 3:
+Missing source node
+Expected Result: False
+
+Scenario 4:
+Empty source node
+Expected Result: False
+
+Scenario 5:
+Missing target node
+Expected Result: False
+
+Scenario 6:
+Empty target node
+Expected Result: False
+
+Scenario 7:
+Invalid empty edge identifier
+Expected Result: False
+
+Scenario 8:
+Missing semantic condition
+Expected Result: False
+
+Scenario 9:
+Unsupported condition field
+Expected Result: False
+
+Scenario 10:
+Unsupported condition operator
+Expected Result: False
+
+Scenario 11:
+String value instead of Boolean
+Expected Result: False
+
+Scenario 12:
+Integer value instead of Boolean
+Expected Result: False
+
+==================================================
+5. OBSERVED RESULTS
+==================================================
+
+Total invalid contracts tested: 12
+
+Correctly rejected contracts: 12
+
+Incorrectly accepted contracts: 0
+
+Invalid contract rejection rate: 100%
+
+Overall result: PASS
+
+Terminal confirmation:
+
+Invalid operator: PASS
+Non-Boolean condition value: PASS
+Integer condition value: PASS
+
+Total invalid contracts: 12
+Correctly rejected: 12
+
+Overall result: PASS
+All extended contract validation tests passed!
+
+==================================================
+6. RESEARCH INTERPRETATION
+==================================================
+
+The experiment demonstrated that the structured semantic contract validator rejected all twelve predefined invalid contract scenarios.
+
+The validator prevented malformed contract structures, missing required fields, unsupported operators, and incorrect condition value types from passing validation.
+
+The integer condition value test was particularly useful because Python treats Boolean values as a subclass of integers. The validator uses an exact Boolean type check to reject integer values such as 1.
+
+These results support the contract validation component of the proposed natural-language edge semantics and deterministic agent execution architecture.
+
+==================================================
+7. LIMITATIONS
+==================================================
+
+The experiment evaluated twelve predefined invalid contract scenarios.
+
+The results do not establish that every possible invalid contract will be rejected.
+
+The current validator does not independently verify:
+
+- Whether source and target nodes exist in a workflow graph.
+- Whether an edge identifier is unique.
+- Whether multiple valid contracts create conflicting routing decisions.
+- Whether additional unexpected contract fields should be rejected.
+
+Graph-level and routing-level checks are separate from the structural validation tested here.
+
+The 100% rejection rate applies only to the twelve evaluated scenarios.
+
+==================================================
+8. CONCLUSION
+==================================================
+
+All twelve invalid semantic contract scenarios were correctly rejected by the structured contract validator.
+
+The experiment provides evidence that the validator enforces the tested contract structure and condition type requirements.
+
+The results support the use of structured contract validation as a safeguard before deterministic workflow routing.
+
+FINAL RESULT: PASS
+
+EXTENDED CONTRACT VALIDATION: 12/12 INVALID CONTRACTS REJECTED

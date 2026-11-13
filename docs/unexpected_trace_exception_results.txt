@@ -1,0 +1,115 @@
+# CISC 699 — CAPSTONE II A2 RESEARCH
+## UNEXPECTED EXECUTION TRACING EXCEPTION RESULTS
+
+**Research Topic:** Natural-Language Edge Semantics and Deterministic Agent Execution
+
+---
+
+### 1. EXPERIMENT OBJECTIVE
+
+The purpose of this experiment was to examine how the automatic execution tracing component behaves when an unexpected Python exception occurs during trace creation.
+
+The experiment evaluated whether the exception is propagated to the calling program and whether the system incorrectly reports a successful trace operation.
+
+### 2. IMPLEMENTATION
+
+**Automatic Tracing Module:** `src/traced_contract_router.py`
+
+**Test File:** `src/test_unexpected_trace_exception.py`
+
+**Test Method:** Python `unittest.mock.patch`
+
+The experiment simulated a runtime exception inside the trace creation function without modifying the production implementation.
+
+A temporary directory was used to isolate the test from existing research files.
+
+### 3. EXPERIMENTAL SETUP
+
+**Current Workflow Node:** Check Tests
+
+**Semantic Contract:**
+
+- Source: Check Tests
+- Target: Deploy Code
+- Condition: tests_passed equals True
+
+**Workflow Data:** `tests_passed = True`
+
+The contract was valid according to the implemented validation rules.
+
+The test replaced the trace creation function temporarily with a simulated failure:
+
+`RuntimeError("Simulated trace creation failure")`
+
+The `route_and_save_trace()` function was then executed using this configuration.
+
+### 4. EXPECTED BEHAVIOR
+
+The system was expected to:
+
+- Execute the deterministic routing operation.
+- Encounter the simulated exception during trace creation.
+- Propagate the `RuntimeError` to the calling program.
+- Avoid returning a successful tracing result.
+- Leave no JSON execution trace in the temporary output directory.
+
+### 5. OBSERVED RESULTS
+
+| Measurement | Observed result |
+|---|---|
+| Simulated exception type | `RuntimeError` |
+| Exception detected | PASS |
+| Exception propagated | PASS |
+| JSON trace saved after failure | No |
+| Overall test result | **PASS** |
+
+**Terminal confirmation:**
+
+```text
+Expected exception detected.
+Exception type: RuntimeError
+Exception message: Simulated trace creation failure
+Unexpected exception propagated: PASS
+No JSON trace saved after failure: PASS
+
+Overall result: PASS
+All unexpected tracing exception tests passed!
+```
+
+### 6. RESEARCH INTERPRETATION
+
+The experiment demonstrated that the automatic tracing wrapper propagated the simulated runtime exception rather than silently ignoring it.
+
+The test also confirmed that no JSON execution trace was saved after the trace creation function failed.
+
+This behavior makes the failure visible to the calling program.
+
+However, it also reveals a limitation: the current implementation does not automatically preserve a separate structured error trace when trace creation fails unexpectedly.
+
+### 7. LIMITATIONS
+
+The experiment involved one simulated exception during trace creation.
+
+It did not evaluate:
+
+- Unexpected exceptions inside the routing evaluator.
+- Exceptions during JSON serialization.
+- Interrupted file-writing operations.
+- Automatic retry or recovery.
+- Concurrent execution failures.
+- Persistent error logging through an independent mechanism.
+
+The experiment does not establish comprehensive exception handling or fault tolerance.
+
+It demonstrates exception propagation for the tested failure condition
+8. CONCLUSION
+
+The automatic execution tracing component correctly propagated a simulated RuntimeError during trace creation.
+
+The test confirmed that the wrapper did not return a successful result and that no JSON trace was saved.
+
+This experiment provides evidence of failure visibility while identifying a limitation in automatic error-trace generation.
+
+FINAL RESULT: PASS
+
+TEST COVERAGE: One simulated unexpected trace-creation exception.

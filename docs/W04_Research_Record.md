@@ -33,3 +33,4 @@ W05: implement and pilot the minimum end-to-end path. **Report linkage:** PENDIN
 **AI assistance:** ChatGPT helped draft documentation and review code. The student verified saved files and inspected source code; no new Week 4 tests were run.
 **Design review:** Created and verified docs/W04_Design_Decisions.md with three decisions and three unresolved issues.
 **M2/M3 review:** Milestone definitions and completion evidence not yet verified; status remains pending.
+**O2 test review:** Inspected test_contract_validator.py and test_contract_evaluator.py; confirmed four validation scenarios and ten repeated evaluation checks in source code. Tests not executed during Week 4.

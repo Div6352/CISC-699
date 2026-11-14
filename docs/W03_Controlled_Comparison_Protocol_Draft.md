@@ -49,3 +49,4 @@ Keep incorrect routes, abstentions, and invalid outputs as observed results. Sto
 ## Current status
 
 Week 8 candidate protocol. Gate 3 remains pending expected-route label review or acceptance of the documented rationale. Gate 4 remains pending protocol finalization and a readiness check demonstrating that formal evidence can be saved under a unique run ID and retained after an interruption. The current three-method script saves to a fixed pilot filename after collecting all results, so check for an existing runner with the required evidence handling before changing code or starting formal Week 9 runs.
+Before the formal run, recheck the Ollama version and model digest. Save both with the run manifest, along with the Git commit identifying the runner and prompt source files. If those files have local edits, commit the exact versions used before recording the commit ID.

@@ -401,3 +401,22 @@ The core prototype and major experimental comparisons have been implemented.
 Remaining work includes final proposal-to-implementation review, consolidation of research results, preparation of the final Capstone II report, verification of references and university submission requirements, and final reproducibility checks.
 
 This README describes the research prototype and the verified experimental evidence available at the time of preparation.
+### Reproduce the formal Week 9 results
+
+From a checkout containing commit `e83c6e6`, run this command from the repository root:
+
+```powershell
+python .\src\analyze_week09_results.py
+```
+
+The script reads the saved benchmark and JSON observations. It requires
+Python and uses only the standard library. Ollama is unnecessary for
+this analysis.
+
+| Method | Correct decisions | Total measured time |
+|---|---:|---:|
+| Original direct | 15/30 | 107.97 s |
+| Guidance-aligned direct | 15/30 | 120.56 s |
+| Structured contract | 24/30 | 253.47 s |
+
+A successful run ends with `PASS: Frozen benchmark, saved decisions, and summary reconcile.`

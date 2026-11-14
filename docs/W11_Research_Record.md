@@ -28,3 +28,4 @@ A draft file alone does not prove review or reproducibility completion.
 
 ## Next action and report contribution
 W12: revise, package, rehearse and verify final readiness. **Report linkage:** PENDING — record chapter/section and supported claims after verification.
+- November 14, 2026 — Cloned Week 10 checkpoint `e83c6e6e4d8ff7725f3a44b4a0cbf08c40839687` into a fresh folder. Ran `python src/analyze_week09_results.py` and reproduced the three accuracy counts and timing totals. Confirmed the checkout contains 30 formal observations, the manifest, provenance and summary, the separate contract-reuse results, and 20 workflow traces with their results file. No model calls were made.

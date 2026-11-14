@@ -1,0 +1,30 @@
+{
+    "timestamp": "2026-11-14T04:44:58.366046+00:00",
+    "current_node": "Check Tests",
+    "workflow_data": {
+        "tests_passed": false
+    },
+    "evaluated_contracts": [
+        {
+            "source": "Check Tests",
+            "target": "Deploy Code",
+            "condition": {
+                "field": "tests_passed",
+                "operator": "equals",
+                "value": true
+            }
+        }
+    ],
+    "routing_status": "NO_MATCH",
+    "selected_next_node": null,
+    "matched_contracts": [],
+    "validation_results": [
+        {
+            "source": "Check Tests",
+            "target": "Deploy Code",
+            "valid": true
+        }
+    ],
+    "decision_explanation": "No contracts matched the current workflow state. No destination was selected.",
+    "trace_id": "434d2c21f2bf4e8883c559189a3e06cc"
+}

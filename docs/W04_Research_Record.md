@@ -34,3 +34,9 @@ W05: implement and pilot the minimum end-to-end path. **Report linkage:** PENDIN
 **Design review:** Created and verified docs/W04_Design_Decisions.md with three decisions and three unresolved issues.
 **M2/M3 review:** Milestone definitions and completion evidence not yet verified; status remains pending.
 **O2 test review:** Inspected test_contract_validator.py and test_contract_evaluator.py; confirmed four validation scenarios and ten repeated evaluation checks in source code. Tests not executed during Week 4.
+**O3 test review:** Inspected test_ollama_workflow_integration.py; verified source-code assertions for Ollama contract generation, validation, both routing outcomes, ten repeated decisions, and twelve unique saved traces. Not executed during Week 4.
+**O3 graph review:** Inspected seven graph-transition test scenarios. The test uses a separate example graph and local permission function; production graph enforcement is not directly tested here. Not executed during Week 4.
+**O4 review:** Inspected repeated comparison code for accuracy, timing, interpretation correctness, and repeated-decision consistency. Prompt guidance and model-call counts differ. No new experiment executed.
+**O5 repeatability review:** Inspected two workflow scenarios with ten repetitions each. Initial transition is fixed; contracts are manually defined. Test not executed during Week 4.
+**O5 trace review:** Inspected nine trace-field checks, routing outcome, matched contract, validation results, and explanation. This test does not verify file persistence or repeated traces. Not executed during Week 4.
+**O5 timing review:** Inspected timing code for Ollama contract construction, two deterministic routing scenarios, and combined elapsed time. No direct LLM baseline or trace-saving measurement. Not executed during Week 4.

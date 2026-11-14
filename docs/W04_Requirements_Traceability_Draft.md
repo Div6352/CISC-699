@@ -26,3 +26,10 @@
 ## Verification Status
 
 The five objectives were checked against docs/proposal_objective_alignment.md. Implementation paths were identified from the repository and selected source files inspected during Week 4. Individual test-to-requirement mappings remain provisional until the relevant test bodies and evidence are reviewed.
+
+## Week 4 Test Review
+O2: Validator and evaluator tests inspected.
+O3: Integration and graph-transition tests inspected; graph test uses a separate example graph.
+O4: Comparison methodology inspected; prompt and model-call differences remain limitations.
+O5: Repeatability, trace completeness, and timing tests inspected.
+All reviews were source-code inspections only; no new Week 4 tests were executed.

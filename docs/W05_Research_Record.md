@@ -1,30 +1,25 @@
-# Week 05 — Pilot prototype and tests Research Record
+# Week 5 - Prototype and Pilot Research Record
 
-**Course:** CISC 699 — Capstone II  
-**Project:** A2 — Natural-Language Edge Semantics and Deterministic Agent Execution  
-**Scheduled week:** November 30–December 6, 2026  
-**Work packages:** WP04, WP06, WP07, WP05  
-**Status:** NOT STARTED — planning template; complete only after this week's work
+**Started early:** November 13, 2026
+**Scheduled week:** November 30 - December 6, 2026
 
-## Objective and planned work
-Implement or verify one end-to-end contract-to-route-to-trace path; test valid, malformed, incomplete and ambiguous conditions; establish a runnable direct-LLM baseline and pilot scenarios.
+## Prototype Status
+Existing natural-language interpretation, semantic contract validation, deterministic routing, graph permission enforcement, and JSON execution tracing components were reused.
 
-## Actual work performed
-**PENDING:** Enter dated, personally verified activities after completing them. Identify source files, test commands, configuration, and outcomes. Do not paste planned activities here as completed work.
+## Pilot Integration Result
+**PASS** - Ollama workflow integration test verified both Boolean routing outcomes, repeated deterministic decisions, automatic trace saving, and unique trace identifiers.
 
-## Evidence and deliverables to retain
-**Planned:** Code version/commit; pilot input/output and trace; component-test results; known failures; preliminary feasibility notes.  
-**Actual paths and versions:** PENDING — add links or repository-relative paths after checking they exist.
+## Scope and Limitations
+This was an early integration pilot, not the formal Week 9 controlled evaluation. Trace files were saved in a temporary directory and removed when the test completed.
 
-## Verification and observations
-**Planned check:** Record reproducible commands and paths, not just screenshots.  
-**Observed results, failures, and blockers:** PENDING — include actual outputs and unresolved items.
+## Remaining Week 5 Work
+Review the pilot scenario coverage, baseline readiness, and any implementation limitations before finalizing Week 5.
 
-## Methodological caution
-Label pilot observations preliminary, not formal controlled evaluation results. Thanksgiving break November 23–29 is outside this work week.
+## Direct-LLM Baseline Readiness
+Code review confirmed that original direct-LLM, prompt-controlled direct-LLM, and structured-contract comparison methods are implemented. The existing comparison records accuracy, consistency, timing, and LLM-call counts. No new comparison experiment was executed during this Week 5 review. Formal controlled evaluation remains scheduled for Week 9.
 
-## AI assistance and independent verification
-**PENDING:** Describe any AI assistance actually used this week and how outputs, code, figures, and claims were independently checked.
+## Known Comparison Limitations
+The dataset covers ten paraphrases of one Boolean condition. Direct methods use one LLM call per decision, while the structured method uses two. Structured contracts are regenerated each repetition. Prompt constraints differ, and execution order may affect timing.
 
-## Next action and report contribution
-W06: demonstrate tools and preliminary results; capture instructor feedback. **Report linkage:** PENDING — record chapter/section and supported claims after verification.
+## Pilot Scenario Coverage
+Source review confirmed ten independent natural-language scenarios: five passing-test conditions and five failing-test conditions. All represent variations of one Boolean workflow rule. The existing Ollama integration pilot passed, but the ten-case dataset was not rerun during this Week 5 checkpoint. Coverage of complex conditions and other workflow types remains unverified.

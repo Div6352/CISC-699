@@ -28,3 +28,6 @@ Formal runs must not be presented as approved merely because older pilot JSON fi
 
 ## Next action and report contribution
 W09: run the frozen controlled evaluation and preserve raw evidence. **Report linkage:** PENDING â€” record chapter/section and supported claims after verification.
+
+## Early evaluation-readiness review — November 13, 2026
+Reviewed the existing Chapter 4 methodology, 10-case evaluation dataset, three-method comparison script, and three-node workflow graph. Verified 30 saved comparison records covering IND01–IND10 three times each, with no expected-route oracle mismatches and consistent method summaries. Verified 20 saved workflow records reporting correct paths and 20 readable JSON trace files. Verified contract-reuse evidence containing 30 decisions, with 27 correct (90% accuracy), consistent with its saved summary. The separate graph-transition test uses a four-node example graph; the evaluated prototype uses three nodes. These checks reviewed previously recorded evidence only; no formal Week 9 evaluation was rerun. Evaluation readiness approval, protocol finalization, and scheduled Week 8 activities remain pending. AI assistance was used to guide read-only checks; outputs were verified in VS Code PowerShell.

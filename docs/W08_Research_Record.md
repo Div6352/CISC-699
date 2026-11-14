@@ -50,3 +50,8 @@ November 14, 2026: Simulated an interruption during IND01 repetition 2 using stu
 The planned evaluation uses three repetitions per case under each of the three methods. This yields 30 matched case–repetition groups and 90 routing decisions. Three repetitions fit the evaluation scope and let us measure within-case decision consistency on this benchmark.
 - November 14, 2026 — Verified Python source revision `8804ae960f53140f8f130a84350213a6efda6885`. Git reported no changes under `src`. Local Ollama reported version `0.40.14` and model `llama3.2:3b` with digest `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`. No model calls were made. Recheck these values and save them alongside the formal run manifest before starting the evaluation.
 - November 14, 2026 — Verified the provenance procedure with test data. `manifest.json` and `provenance.json` shared the same run ID, and the Git commit, Ollama version, and model digest fields were read back successfully. No model calls were made. Capture the actual values when preparing the formal Week 9 run.
+## Week 8 closeout and Week 9 handoff
+
+- Gate 3 — Pending. The benchmark snapshot and expected-route rationale are documented. Review or acceptance of the labels for IND04, IND08, and IND09 remains unverified.
+- Gate 4 — Pending final protocol freeze. The interruption, structured timeout, and provenance checks passed with simulated inputs. The protocol specifies three repetitions per case per method.
+- Week 9 preparation — Record the Gate 3 decision, freeze the evaluation protocol, and recheck the source revision and Ollama model digest before starting formal runs.

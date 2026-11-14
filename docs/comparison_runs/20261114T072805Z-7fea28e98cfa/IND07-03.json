@@ -1,0 +1,104 @@
+{
+    "run_id": "20261114T072805Z-7fea28e98cfa",
+    "case_id": "IND07",
+    "repetition": 3,
+    "paraphrase": "Proceed with deployment provided that every test is successful.",
+    "expected_value": true,
+    "workflow_data": {
+        "tests_passed": true
+    },
+    "expected_target": "Deploy Code",
+    "edges": [
+        {
+            "edge_id": "E01",
+            "source": "Check Tests",
+            "target": "Deploy Code",
+            "text": "Proceed with deployment provided that every test is successful.",
+            "expected_value": true
+        },
+        {
+            "edge_id": "E02",
+            "source": "Check Tests",
+            "target": "Fix Code",
+            "text": "If any software test has failed, return to fixing the code.",
+            "expected_value": false
+        }
+    ],
+    "original_direct": {
+        "result": "Deploy Code",
+        "seconds": 3.193648299900815,
+        "error": null,
+        "diagnostics": "RAW DIRECT NL RESPONSE: 'Deploy Code'\n",
+        "llm_calls": 1,
+        "correct": true
+    },
+    "controlled_direct": {
+        "result": "Deploy Code",
+        "seconds": 3.8065694998949766,
+        "error": null,
+        "diagnostics": "RAW CONTROLLED DIRECT RESPONSE: 'Deploy Code'\n",
+        "llm_calls": 1,
+        "correct": true
+    },
+    "structured": {
+        "status": "ROUTED",
+        "result": "Deploy Code",
+        "construction_seconds": 8.2681388000492,
+        "routing_seconds": 9.499955922365189e-06,
+        "seconds": 8.268148300005123,
+        "contracts": [
+            {
+                "edge_id": "E01",
+                "source": "Check Tests",
+                "target": "Deploy Code",
+                "condition": {
+                    "field": "tests_passed",
+                    "operator": "equals",
+                    "value": true
+                }
+            },
+            {
+                "edge_id": "E02",
+                "source": "Check Tests",
+                "target": "Fix Code",
+                "condition": {
+                    "field": "tests_passed",
+                    "operator": "equals",
+                    "value": false
+                }
+            }
+        ],
+        "interpretations": [
+            {
+                "edge_id": "E01",
+                "text": "Proceed with deployment provided that every test is successful.",
+                "expected_value": true,
+                "predicted_condition": {
+                    "field": "tests_passed",
+                    "operator": "equals",
+                    "value": true
+                },
+                "interpretation_correct": true,
+                "contract_valid": true,
+                "seconds": 4.167892399942502,
+                "error": null
+            },
+            {
+                "edge_id": "E02",
+                "text": "If any software test has failed, return to fixing the code.",
+                "expected_value": false,
+                "predicted_condition": {
+                    "field": "tests_passed",
+                    "operator": "equals",
+                    "value": false
+                },
+                "interpretation_correct": true,
+                "contract_valid": true,
+                "seconds": 4.100223999936134,
+                "error": null
+            }
+        ],
+        "llm_calls": 2,
+        "correct": true
+    }
+}

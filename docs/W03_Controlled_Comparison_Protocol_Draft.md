@@ -52,3 +52,10 @@ Week 8 candidate protocol. Gate 3 remains pending expected-route label review or
 Before the formal run, recheck the Ollama version and model digest. Save both with the run manifest, along with the Git commit identifying the runner and prompt source files. If those files have local edits, commit the exact versions used before recording the commit ID.
 Planned repetition rule: Run each of the ten cases three times under each of the three methods. This yields 30 matched case–repetition groups and 90 routing decisions. Three repetitions keep the comparison feasible and let us measure within-case decision consistency.
 Before starting the formal evaluation, capture the Git commit, Ollama version, and model digest. After the runner prints its evidence folder, save those values in provenance.json in that folder, alongside manifest.json. Use the same run ID in both files. At closeout, verify that both files are present and their run IDs match.
+### Separate workflow-path and trace verification
+
+Use `src/test_workflow_path_trace_experiment.py` to run the two Boolean workflow states ten times each with manually authored reference contracts. Record 20 planned workflow runs separately from the 90 method-level routing decisions. Check each observed path against its expected terminal path. Verify trace readability, required fields, unique trace IDs, and agreement with the recorded routing result.
+
+Set `OUTPUT_FILE` and `TRACE_FOLDER` to fresh locations under a unique run folder before calling `run_experiment()`. Retain the summary and trace files together. If execution is interrupted, preserve any traces already written and document the missing summary or observations.
+
+Report these results as deterministic path and trace-persistence evidence for the three-node prototype. Report LLM interpretation accuracy from the separate routing comparison.

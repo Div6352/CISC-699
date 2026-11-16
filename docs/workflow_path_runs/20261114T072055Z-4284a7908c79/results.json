@@ -1,0 +1,633 @@
+{
+    "experiment": "workflow_path_trace_evaluation",
+    "created_utc": "2026-11-14T07:20:55.916640+00:00",
+    "contract_source": "manually_authored_reference_contracts",
+    "summary": {
+        "total_scenarios": 2,
+        "repeats_per_scenario": 10,
+        "total_workflow_runs": 20,
+        "correct_paths": 20,
+        "path_accuracy": 1.0,
+        "scenario_stability": {
+            "tests_pass": true,
+            "tests_fail": true
+        },
+        "total_trace_files": 20,
+        "unique_trace_ids": 20,
+        "unique_trace_filenames": 20,
+        "trace_checks_passed": 20,
+        "total_trace_checks": 20
+    },
+    "records": [
+        {
+            "scenario": "tests_pass",
+            "repetition": 1,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_b524b25dc84648c2900ef008fce68a0e.json"
+            ],
+            "trace_ids": [
+                "b524b25dc84648c2900ef008fce68a0e"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_pass",
+            "repetition": 2,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_e21df472fcb34110a291f22581cfa7ec.json"
+            ],
+            "trace_ids": [
+                "e21df472fcb34110a291f22581cfa7ec"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_pass",
+            "repetition": 3,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_c3090644f98d4fbf97726bbd8ed2bd8d.json"
+            ],
+            "trace_ids": [
+                "c3090644f98d4fbf97726bbd8ed2bd8d"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_pass",
+            "repetition": 4,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_c9dd466f68274d259d082e0c5cad53e9.json"
+            ],
+            "trace_ids": [
+                "c9dd466f68274d259d082e0c5cad53e9"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_pass",
+            "repetition": 5,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_018ea7658318418e928d0e70f1ecaec4.json"
+            ],
+            "trace_ids": [
+                "018ea7658318418e928d0e70f1ecaec4"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_pass",
+            "repetition": 6,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_0ec0050bcc8445da8d92b253f9b71572.json"
+            ],
+            "trace_ids": [
+                "0ec0050bcc8445da8d92b253f9b71572"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_pass",
+            "repetition": 7,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_035d864bc586404a9aed822c8d9591b0.json"
+            ],
+            "trace_ids": [
+                "035d864bc586404a9aed822c8d9591b0"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_pass",
+            "repetition": 8,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_d432ab6d910b4f22a347fd06f7f17186.json"
+            ],
+            "trace_ids": [
+                "d432ab6d910b4f22a347fd06f7f17186"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_pass",
+            "repetition": 9,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_3c54e6f66b514381bc9be56c848d0cdb.json"
+            ],
+            "trace_ids": [
+                "3c54e6f66b514381bc9be56c848d0cdb"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_pass",
+            "repetition": 10,
+            "workflow_data": {
+                "tests_passed": true
+            },
+            "expected_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Deploy Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_f3cc1f21a7974624a661294d51b0cc4c.json"
+            ],
+            "trace_ids": [
+                "f3cc1f21a7974624a661294d51b0cc4c"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_fail",
+            "repetition": 1,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_3b555f1036384491b32c92f46a4d9b9c.json"
+            ],
+            "trace_ids": [
+                "3b555f1036384491b32c92f46a4d9b9c"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_fail",
+            "repetition": 2,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_8facb877ccd84cb6a0814bb938faa6b9.json"
+            ],
+            "trace_ids": [
+                "8facb877ccd84cb6a0814bb938faa6b9"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_fail",
+            "repetition": 3,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_5ea11342884a438f88f003fef56eedc5.json"
+            ],
+            "trace_ids": [
+                "5ea11342884a438f88f003fef56eedc5"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_fail",
+            "repetition": 4,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_08a5541c4fe64bca87903ac94bc4289d.json"
+            ],
+            "trace_ids": [
+                "08a5541c4fe64bca87903ac94bc4289d"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_fail",
+            "repetition": 5,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_28d4ab3a95524cd19dac3ab442dafe2b.json"
+            ],
+            "trace_ids": [
+                "28d4ab3a95524cd19dac3ab442dafe2b"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_fail",
+            "repetition": 6,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_9e8e5f12bd6e4dab8ef5665aad5d2f92.json"
+            ],
+            "trace_ids": [
+                "9e8e5f12bd6e4dab8ef5665aad5d2f92"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_fail",
+            "repetition": 7,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_728410d8703b4a0d88443f91315f569f.json"
+            ],
+            "trace_ids": [
+                "728410d8703b4a0d88443f91315f569f"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_fail",
+            "repetition": 8,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_a5a5fe7fe8fd45b0a4f999b21fffe0b4.json"
+            ],
+            "trace_ids": [
+                "a5a5fe7fe8fd45b0a4f999b21fffe0b4"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_fail",
+            "repetition": 9,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_0dcf0ab5642d468b90c824ca35adaae5.json"
+            ],
+            "trace_ids": [
+                "0dcf0ab5642d468b90c824ca35adaae5"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        },
+        {
+            "scenario": "tests_fail",
+            "repetition": 10,
+            "workflow_data": {
+                "tests_passed": false
+            },
+            "expected_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "observed_path": [
+                "Check Tests",
+                "Fix Code"
+            ],
+            "status": "COMPLETED",
+            "correct_path": true,
+            "trace_files": [
+                "C:\\Users\\divya\\Documents\\CISC699_A2_Research\\docs\\workflow_path_runs\\20261114T072055Z-4284a7908c79\\traces\\trace_69b5707eb3044d12bba1ea876b9ad259.json"
+            ],
+            "trace_ids": [
+                "69b5707eb3044d12bba1ea876b9ad259"
+            ],
+            "trace_checks": [
+                {
+                    "exists": true,
+                    "required_fields_present": true,
+                    "matches_routing_result": true
+                }
+            ]
+        }
+    ],
+    "limitations": [
+        "Three-node workflow with two permitted transitions.",
+        "Each complete workflow path contains one routed edge.",
+        "Contracts are manually authored, not generated by an LLM.",
+        "Two Boolean workflow states are evaluated.",
+        "No external agent or software deployment is executed.",
+        "No LLM interpretation accuracy is measured.",
+        "Unexpected exceptions may prevent trace creation.",
+        "Trace validation checks required fields and selected values."
+    ]
+}

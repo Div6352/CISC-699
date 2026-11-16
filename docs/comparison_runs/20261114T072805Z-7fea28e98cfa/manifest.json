@@ -1,0 +1,139 @@
+{
+    "run_id": "20261114T072805Z-7fea28e98cfa",
+    "experiment": "prompt_controlled_three_method_comparison",
+    "started_utc": "2026-11-14T07:28:05.677716+00:00",
+    "model": "llama3.2:3b",
+    "temperature": 0,
+    "starting_node": "Check Tests",
+    "methods_in_order": [
+        "original_direct",
+        "controlled_direct",
+        "structured"
+    ],
+    "dataset": "src/independent_evaluation_dataset.py",
+    "dataset_sha256": "5f4c7eecaea29b993522eee00d4652186f8cb3387a5617ca94462ea1225d64b0",
+    "runner_sha256": "8bb63503bf04ba9f8bf8a2d8a2d93d9fac20cf2cf8a74193a114a6a7696f86a5",
+    "repeats_per_case": 3,
+    "planned_case_repetitions": [
+        [
+            "IND01",
+            1
+        ],
+        [
+            "IND01",
+            2
+        ],
+        [
+            "IND01",
+            3
+        ],
+        [
+            "IND02",
+            1
+        ],
+        [
+            "IND02",
+            2
+        ],
+        [
+            "IND02",
+            3
+        ],
+        [
+            "IND03",
+            1
+        ],
+        [
+            "IND03",
+            2
+        ],
+        [
+            "IND03",
+            3
+        ],
+        [
+            "IND04",
+            1
+        ],
+        [
+            "IND04",
+            2
+        ],
+        [
+            "IND04",
+            3
+        ],
+        [
+            "IND05",
+            1
+        ],
+        [
+            "IND05",
+            2
+        ],
+        [
+            "IND05",
+            3
+        ],
+        [
+            "IND06",
+            1
+        ],
+        [
+            "IND06",
+            2
+        ],
+        [
+            "IND06",
+            3
+        ],
+        [
+            "IND07",
+            1
+        ],
+        [
+            "IND07",
+            2
+        ],
+        [
+            "IND07",
+            3
+        ],
+        [
+            "IND08",
+            1
+        ],
+        [
+            "IND08",
+            2
+        ],
+        [
+            "IND08",
+            3
+        ],
+        [
+            "IND09",
+            1
+        ],
+        [
+            "IND09",
+            2
+        ],
+        [
+            "IND09",
+            3
+        ],
+        [
+            "IND10",
+            1
+        ],
+        [
+            "IND10",
+            2
+        ],
+        [
+            "IND10",
+            3
+        ]
+    ]
+}

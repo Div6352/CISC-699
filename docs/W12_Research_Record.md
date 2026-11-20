@@ -28,3 +28,8 @@ Disclose remaining limitations or unmet criteria; do not assume submission compl
 
 ## Next action and report contribution
 W13: present and submit final deliverables; retain confirmation. **Report linkage:** PENDING — record chapter/section and supported claims after verification.
+Rehearsal time: __ minutes __ seconds
+Changes after rehearsal: __
+Report opened: yes / no / not checked yet
+PowerPoint opened: yes / no / not checked yet
+Software/evidence package opened: yes / no / not checked yet

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CISC 699 | Capstone II Research Showcase</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #101923;
+      color: #edf6f8;
+      font: 16px/1.6 system-ui, sans-serif;
+    }
+    main, nav { max-width: 1040px; margin: auto; padding: 24px; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-bottom: 1px solid #344554;
+    }
+    nav strong { margin-right: auto; }
+    a, .author { color: #8af2d4; }
+    header { padding: 48px 0 32px; }
+    h1 {
+      max-width: 920px;
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      line-height: 1.06;
+      letter-spacing: -.05em;
+      margin: 12px 0 22px;
+    }
+    h2 { margin-top: 0; }
+    p { max-width: 70ch; color: #bdced9; }
+    section {
+      background: #172532;
+      border: 1px solid #344554;
+      border-radius: 18px;
+      padding: clamp(18px, 4vw, 36px);
+      margin-bottom: 22px;
+    }
+    label { display: block; margin-bottom: 6px; }
+    select, button {
+      font: inherit;
+      padding: 9px 14px;
+      border: 1px solid #7794a4;
+      border-radius: 8px;
+    }
+    select { background: #101923; color: white; }
+    button { background: #8af2d4; color: #102222; font-weight: 700; cursor: pointer; }
+    pre { white-space: pre-wrap; background: #101923; padding: 16px; border-radius: 8px; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 10px; text-align: left; border-bottom: 1px solid #344554; }
+  </style>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <strong>CISC 699 · Capstone II</strong>
+    <a href="#demo">Routing demo</a>
+    <a href="#results">Results</a>
+    <a href="#report">Final report</a>
+  </nav>
+
+  <main>
+    <header>
+      <p class="author">Divyam Brahmbhatt · Harrisburg University</p>
+      <h1>Natural-Language Edge Semantics and Deterministic Agent Execution</h1>
+      <p>Can a structured routing contract make graph-based software workflows
+        more repeatable and easier to audit?</p>
+    </header>
+
+    <section id="demo">
+      <h2>Try the routing contract</h2>
+      <p>Deploy only if the test suite passes. If the suite fails, fix the code.
+        Change the test result to see how the contract selects a route.</p>
+      <form id="routing-form">
+        <label for="test-result">Test suite result</label>
+        <select id="test-result">
+          <option value="true">Passed</option>
+          <option value="false">Failed</option>
+        </select>
+        <button type="submit">Evaluate route</button>
+      </form>
+      <pre id="trace" aria-live="polite">The decision trace will appear here.</pre>
+      <p>The demo evaluates a fixed contract in your browser.</p>
+    </section>
+
+    <section id="results">
+      <h2>Capstone benchmark results</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Routing method</th>
+              <th scope="col">Correct routes</th>
+              <th scope="col">Accuracy</th>
+              <th scope="col">Mean time per trial</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Original direct</th><td>15 / 30</td><td>50%</td><td>3.60 s</td></tr>
+            <tr><th scope="row">Controlled direct</th><td>15 / 30</td><td>50%</td><td>4.02 s</td></tr>
+            <tr><th scope="row">Structured contract</th><td>24 / 30</td><td>80%</td><td>8.45 s</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Structured routing matched the expected route in nine more trials than
+        controlled direct routing and took 4.43 seconds longer per trial on average.</p>
+    </section>
+
+    <section id="report">
+      <h2>Final capstone report</h2>
+      <a href="./final-report.pdf">Open final report (PDF)</a>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById('routing-form');
+    const testResult = document.getElementById('test-result');
+    const trace = document.getElementById('trace');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const testsPassed = testResult.value === 'true';
+      const decision = {
+        tests_passed: testsPassed,
+        deploy_condition: 'tests_passed === true',
+        condition_matched: testsPassed,
+        selected_route: testsPassed ? 'Deploy Code' : 'Fix Code'
+      };
+      trace.textContent = JSON.stringify(decision, null, 2);
+    });
+  </script>
+</body>
+</html>

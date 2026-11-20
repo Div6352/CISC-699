@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A2 Research | CISC 699 Capstone II</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #101827; color: #edf3fc;
+    font: 16px/1.6 system-ui, sans-serif; }
+  header, main, footer { width: min(1080px, 92%); margin: auto; }
+  header { display: flex; flex-wrap: wrap; justify-content: space-between;
+    align-items: center; gap: 12px; padding: 24px 0; }
+  a { color: #82e6cf; }
+  nav { display: flex; gap: 20px; }
+  .hero { padding: clamp(36px, 8vw, 84px) 0 32px; }
+  .eyebrow { color: #82e6cf; font-weight: 700; letter-spacing: .12em; }
+  h1 { font-size: clamp(2.4rem, 6vw, 4.6rem); line-height: 1.04;
+    letter-spacing: -.045em; margin: 12px 0 24px; max-width: 17ch; }
+  h2 { margin: 0 0 14px; line-height: 1.2; }
+  p { max-width: 70ch; color: #bdcadd; }
+  section { margin-bottom: 26px; }
+  .panel { background: #182438; border: 1px solid #35455d;
+    border-radius: 18px; padding: clamp(18px, 4vw, 34px); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(230px,100%),1fr));
+    gap: 14px; }
+  label { display: block; font-weight: 650; }
+  select, input { display: block; width: 100%; margin-top: 6px; padding: 10px;
+    border: 1px solid #637993; border-radius: 8px; background: #101827;
+    color: inherit; font: inherit; }
+  :focus-visible { outline: 2px solid #82e6cf; outline-offset: 3px; }
+  .trace { margin-top: 20px; border-left: 3px solid #82e6cf;
+    padding: 14px 18px; background: #101827; border-radius: 6px; }
+  .trace p { margin: 4px 0 0; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; text-align: left; }
+  caption { text-align: left; color: #bdcadd; margin-bottom: 8px; }
+  th, td { padding: 10px 12px; border-bottom: 1px solid #35455d; }
+  tbody tr:last-child { background: #223c43; }
+  footer { padding: 6px 0 32px; }
+</style>
+</head>
+<body>
+<header>
+  <strong>A2 Research / CISC 699</strong>
+  <nav aria-label="Page sections">
+    <a href="#demo">Live demo</a>
+    <a href="#results">Results</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="eyebrow">CAPSTONE II · CHECKPOINT 8</div>
+    <h1>Natural-Language Edge Semantics and Deterministic Agent Execution</h1>
+    <p>How does structuring natural-language conditions affect the accuracy,
+      repeatability, and auditability of routing decisions in software workflows?</p>
+    <p>Divyam Brahmbhatt · Harrisburg University of Science and Technology</p>
+  </section>
+
+  <section class="panel" id="demo">
+    <h2>Live demo · Release approval</h2>
+    <p>A software team wants to release a build “when it’s ready.”
+      Here, readiness means the test suite passed, a reviewer approved the
+      release, and zero checks failed. Change the build state to see which
+      branch the workflow takes.</p>
+    <form class="grid" id="workflow">
+      <label>Test suite
+        <select id="tests">
+          <option value="passed">Passed</option>
+          <option value="failed">Failed</option>
+        </select>
+      </label>
+      <label>Reviewer approval
+        <select id="approval">
+          <option value="pending">Pending</option>
+          <option value="approved">Approved</option>
+        </select>
+      </label>
+      <label>Failed checks
+        <input id="checks" type="number" min="0" step="1" value="0" required>
+      </label>
+    </form>
+    <div class="trace" role="status">
+      <strong id="route">Route → Review</strong>
+      <p id="reason">Reviewer approval is pending.</p>
+    </div>
+    <details>
+      <summary>Rule order</summary>
+      <ol>
+        <li>Route to Fix build if the test suite fails or any checks fail.</li>
+        <li>Otherwise, route to Review while approval is pending.</li>
+        <li>Otherwise, route to Release.</li>
+      </ol>
+    </details>
+  </section>
+
+  <section class="panel" id="results">
+    <h2>Checkpoint 8 benchmark</h2>
+    <div class="table-wrap">
+      <table>
+        <caption>Reported results across 30 decisions per approach</caption>
+        <thead><tr>
+          <th scope="col">Approach</th><th scope="col">Correct</th>
+          <th scope="col">Accuracy</th><th scope="col">Mean time</th>
+          <th scope="col">Total time</th>
+        </tr></thead>
+        <tbody>
+          <tr><th scope="row">Original direct</th><td>15/30</td>
+            <td>50%</td><td>3.60 s</td><td>107.97 s</td></tr>
+          <tr><th scope="row">Controlled direct</th><td>15/30</td>
+            <td>50%</td><td>4.02 s</td><td>120.56 s</td></tr>
+          <tr><th scope="row">Structured</th><td>24/30</td>
+            <td>80%</td><td>8.45 s</td><td>253.47 s</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>In this benchmark, the structured approach made nine more correct
+      decisions than each direct approach. It also had the longest mean
+      decision time.</p>
+  </section>
+</main>
+<footer><a href="https://github.com/Div6352/CISC-699">View the CISC 699 GitHub repository</a></footer>
+<script>
+  const workflow = document.querySelector('#workflow');
+  const tests = document.querySelector('#tests');
+  const approval = document.querySelector('#approval');
+  const checks = document.querySelector('#checks');
+  const route = document.querySelector('#route');
+  const reason = document.querySelector('#reason');
+
+  function evaluate() {
+    if (!checks.validity.valid) {
+      route.textContent = 'Route → Waiting for valid input';
+      reason.textContent = 'Enter a whole number of failed checks, starting at zero.';
+      return;
+    }
+
+    const failedChecks = checks.valueAsNumber;
+    const blockers = [];
+    if (tests.value === 'failed') blockers.push('The test suite failed.');
+    if (failedChecks > 0) {
+      blockers.push(`${failedChecks} automated ${failedChecks === 1 ? 'check failed' : 'checks failed'}.`);
+    }
+
+    if (blockers.length) {
+      route.textContent = 'Route → Fix build';
+      reason.textContent = blockers.join(' ');
+    } else if (approval.value === 'pending') {
+      route.textContent = 'Route → Review';
+      reason.textContent = 'Tests passed with zero failed checks. Reviewer approval is pending.';
+    } else {
+      route.textContent = 'Route → Release';
+      reason.textContent = 'Tests passed, zero checks failed, and a reviewer approved the release.';
+    }
+  }
+
+  workflow.addEventListener('input', evaluate);
+  workflow.addEventListener('submit', event => event.preventDefault());
+  evaluate();
+</script>
+</body>
+</html>
